@@ -6,6 +6,7 @@
 .env
 .google.token
 .uuid
+.storage/
 icloud/
 ssh_keys/
 google_calendars.yaml
