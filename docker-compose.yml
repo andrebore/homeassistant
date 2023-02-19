@@ -1,0 +1,37 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - /home/andrea/has/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8123:8123
+      - 5683:5683
+      - 5683:5683/udp
+    restart: unless-stopped
+    privileged: true
+    networks:
+      macvlan5:
+        ipv4_address: 172.31.3.50
+  cloudflared:
+    image: erisamoe/cloudflared
+    container_name: cloudflared_has
+    restart: unless-stopped
+    command: tunnel run
+    networks:
+      macvlan5:
+        ipv4_address: 172.31.3.51
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+
+networks:
+  macvlan5:
+    driver: macvlan
+    driver_opts:
+      parent: eth0.5
+    ipam:
+      config:
+        - subnet: 172.31.3.0/24
+          gateway: 172.31.3.1

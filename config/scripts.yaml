@@ -1,0 +1,20 @@
+alza_scrivania:
+  alias: alza scrivania
+  sequence:
+  - device_id: 1fd4784fdbcacea7bf9577dc99766d4d
+    domain: cover
+    entity_id: cover.scrivania
+    type: set_position
+    position: 80
+  mode: single
+  icon: mdi:boom-gate-up
+abbassa_scrivania:
+  alias: abbassa scrivania
+  sequence:
+  - device_id: 1fd4784fdbcacea7bf9577dc99766d4d
+    domain: cover
+    entity_id: cover.scrivania
+    type: set_position
+    position: 15
+  mode: single
+  icon: mdi:boom-gate

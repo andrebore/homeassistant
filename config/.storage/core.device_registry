@@ -1,0 +1,956 @@
+{
+  "version": 1,
+  "minor_version": 3,
+  "key": "core.device_registry",
+  "data": {
+    "devices": [
+      {
+        "area_id": null,
+        "config_entries": [
+          "f55951e1ab4a72910cbaecae1dfd99d2"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "40d261eeb557fd72fb1367324e7f8e87",
+        "identifiers": [
+          [
+            "cast",
+            "f8eb89578d995edbd3c4d95bf1aacaa0"
+          ]
+        ],
+        "manufacturer": "Google Inc.",
+        "model": "Chromecast Ultra",
+        "name_by_user": null,
+        "name": "TV Sala",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": null,
+        "config_entries": [
+          "f55951e1ab4a72910cbaecae1dfd99d2"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "e4c926af5a4220b162698b7724e2c52a",
+        "identifiers": [
+          [
+            "cast",
+            "6300e09a2340c42266c5c3e74a28b08f"
+          ]
+        ],
+        "manufacturer": "Google Inc.",
+        "model": "Google Nest Hub",
+        "name_by_user": null,
+        "name": "Nest cucina",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": null,
+        "config_entries": [
+          "f55951e1ab4a72910cbaecae1dfd99d2"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "60e66335223aad42eea2083d3b7aa95b",
+        "identifiers": [
+          [
+            "cast",
+            "8c9accb160c1e8c46af7a569a64fe879"
+          ]
+        ],
+        "manufacturer": "Google Inc.",
+        "model": "Chromecast",
+        "name_by_user": null,
+        "name": "TV Studio",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": null,
+        "config_entries": [
+          "f55951e1ab4a72910cbaecae1dfd99d2"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "f3af4fc112c79665ce4e05a23d1cbb04",
+        "identifiers": [
+          [
+            "cast",
+            "b0e64bc3adbfdfc460e4d33ba7d22d00"
+          ]
+        ],
+        "manufacturer": "Google Inc.",
+        "model": "Google Home Mini",
+        "name_by_user": null,
+        "name": "assistant sala",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": null,
+        "config_entries": [
+          "536aa93f2782f4c76ac0574b5af02d2c"
+        ],
+        "configuration_url": "https://www.met.no/en",
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": "service",
+        "hw_version": null,
+        "id": "f984d2bb9c90bd7618121777df6feb3c",
+        "identifiers": [
+          [
+            "met"
+          ]
+        ],
+        "manufacturer": "Met.no",
+        "model": "Forecast",
+        "name_by_user": null,
+        "name": "Forecast",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "studio_andrea",
+        "config_entries": [
+          "e90441feea432320b005ec44a446d826"
+        ],
+        "configuration_url": null,
+        "connections": [
+          [
+            "mac",
+            "34:86:5d:fc:84:d8"
+          ]
+        ],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "1fd4784fdbcacea7bf9577dc99766d4d",
+        "identifiers": [],
+        "manufacturer": "Espressif",
+        "model": "esp32dev",
+        "name_by_user": null,
+        "name": "scrivania",
+        "sw_version": "2022.12.3 (Jan 19 2023, 19:18:42)",
+        "via_device_id": null
+      },
+      {
+        "area_id": "devices",
+        "config_entries": [
+          "37ea37aaca8b21f3dc22094c741592c1"
+        ],
+        "configuration_url": "http://172.31.3.3",
+        "connections": [
+          [
+            "mac",
+            "98:cd:ac:39:e9:d3"
+          ]
+        ],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": "gen1 (SHEM)",
+        "id": "e2bb36d18c8e8b27c914f2659f090a66",
+        "identifiers": [],
+        "manufacturer": "Shelly",
+        "model": "Shelly EM",
+        "name_by_user": null,
+        "name": "EM-1",
+        "sw_version": "20221027-105518/v1.12.1-ga9117d3",
+        "via_device_id": null
+      },
+      {
+        "area_id": "cucina",
+        "config_entries": [
+          "274b619d6d8994c30176752a261c0ca2"
+        ],
+        "configuration_url": "http://172.31.3.7",
+        "connections": [
+          [
+            "mac",
+            "34:94:54:70:a5:e4"
+          ]
+        ],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": "gen1 (SHSW-1)",
+        "id": "e47eec0e9650b04e08cf18c932cbc27e",
+        "identifiers": [],
+        "manufacturer": "Shelly",
+        "model": "Shelly 1",
+        "name_by_user": null,
+        "name": "shellysw2",
+        "sw_version": "20221027-091427/v1.12.1-ga9117d3",
+        "via_device_id": null
+      },
+      {
+        "area_id": "sala",
+        "config_entries": [
+          "6f06cc15084e46a9c139768afd52d1f3"
+        ],
+        "configuration_url": "http://172.31.3.6",
+        "connections": [
+          [
+            "mac",
+            "34:94:54:70:cd:9c"
+          ]
+        ],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": "gen1 (SHSW-1)",
+        "id": "b72f9ebcaeeafa9df1bd28a380f9a59a",
+        "identifiers": [],
+        "manufacturer": "Shelly",
+        "model": "Shelly 1",
+        "name_by_user": null,
+        "name": "shelly1-34945470CD9C",
+        "sw_version": "20221027-091427/v1.12.1-ga9117d3",
+        "via_device_id": null
+      },
+      {
+        "area_id": null,
+        "config_entries": [
+          "88d6d56475e87af1f2cd40be0bec5af0"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": "service",
+        "hw_version": null,
+        "id": "af21984ad37940e5d9b280688da98054",
+        "identifiers": [
+          [
+            "google_assistant",
+            "has-integration-52518"
+          ]
+        ],
+        "manufacturer": "Google",
+        "model": "Google Assistant",
+        "name_by_user": null,
+        "name": "has-integration-52518",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": null,
+        "config_entries": [
+          "4c7513da3e3800b7abeb3814d40d8b2a"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "78507ecdfe1d3d2e0c2a63a0c79e078e",
+        "identifiers": [
+          [
+            "mobile_app",
+            "B52704A7-B7F8-422F-BED0-B931A70E62B2"
+          ]
+        ],
+        "manufacturer": "Apple",
+        "model": "iPhone15,3",
+        "name_by_user": null,
+        "name": "iPhone di Andrea",
+        "sw_version": "16.3.1",
+        "via_device_id": null
+      },
+      {
+        "area_id": "devices",
+        "config_entries": [
+          "526825eb75ac394e7c5deaedc265271a"
+        ],
+        "configuration_url": "https://icloud.com/",
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "e70f668b689a9ecb3a7f74a6403e3fb2",
+        "identifiers": [
+          [
+            "icloud",
+            "I42Hwv9ZJnfPeYwl0e4BvQU80057a1zNi7mxiFvihSk="
+          ]
+        ],
+        "manufacturer": "Apple",
+        "model": "iPhone 14 Pro Max",
+        "name_by_user": null,
+        "name": "iPhone di Andrea",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "devices",
+        "config_entries": [
+          "526825eb75ac394e7c5deaedc265271a"
+        ],
+        "configuration_url": "https://icloud.com/",
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "cbbea5a435e91c0423597a949b76a68e",
+        "identifiers": [
+          [
+            "icloud",
+            "zT0itebgp3iknopqvRNLW/tAr+sTyNPn5Qeu6hTj2BkhwJdNTSMdnA=="
+          ]
+        ],
+        "manufacturer": "Apple",
+        "model": "MacBook Pro 13\"",
+        "name_by_user": null,
+        "name": "3c22fb315d18",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "devices",
+        "config_entries": [
+          "526825eb75ac394e7c5deaedc265271a"
+        ],
+        "configuration_url": "https://icloud.com/",
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "5c0de8a70fd9f5f420a0b7f8ff8306ed",
+        "identifiers": [
+          [
+            "icloud",
+            "/UNm01d39xbGRcHZmJu1q6+gqSWtvel8i7mxiFvihSk="
+          ]
+        ],
+        "manufacturer": "Apple",
+        "model": "iPad Air (4th Generation)",
+        "name_by_user": null,
+        "name": "iPad di Andrea",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "devices",
+        "config_entries": [
+          "526825eb75ac394e7c5deaedc265271a"
+        ],
+        "configuration_url": "https://icloud.com/",
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "75b3eeb468bc937546130557ec439c20",
+        "identifiers": [
+          [
+            "icloud",
+            "nA/v6NXyDun7nFk7R1qX0d1lWnGR8g9h+PfU3n/Olv+uzxhWQvCscwVbOrl9Sv3Q/sTjwUOzW+A+VzDtv0U7PUqKI+TOh2/y"
+          ]
+        ],
+        "manufacturer": "Apple",
+        "model": "iPhone 13",
+        "name_by_user": null,
+        "name": "iPhone (2)",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "devices",
+        "config_entries": [
+          "526825eb75ac394e7c5deaedc265271a"
+        ],
+        "configuration_url": "https://icloud.com/",
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "7ec351a291ab8fa54ed1a2433d681b1c",
+        "identifiers": [
+          [
+            "icloud",
+            "TPPi0To/gQYRS0eQA8u/nvuf/AygZVh6PmN0ba52EWWuzxhWQvCscwVbOrl9Sv3Q/sTjwUOzW+A+VzDtv0U7PUqKI+TOh2/y"
+          ]
+        ],
+        "manufacturer": "Apple",
+        "model": "Apple Watch Series 6 (GPS)",
+        "name_by_user": null,
+        "name": "Apple Watch di Sara",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "devices",
+        "config_entries": [
+          "526825eb75ac394e7c5deaedc265271a"
+        ],
+        "configuration_url": "https://icloud.com/",
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "4515a50d003ed605783904eb155d0c56",
+        "identifiers": [
+          [
+            "icloud",
+            "FFcS9+p24ZZxNn5pbgFUS9Nl47lE+zwTTvgoKauSuOuNrI9O2UC24zdQXmdRF6CZeDKeui7ijW2nQow3Ir8Kqn2my0MEGC7R2osAaNqzIM0="
+          ]
+        ],
+        "manufacturer": "Apple",
+        "model": "MacBook Pro (16-inch, 2019)",
+        "name_by_user": null,
+        "name": "sgangaleNMD6T",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "sala",
+        "config_entries": [
+          "3643b503e7e0796296f99ad2f4525491"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "f9a8b282d59648ba148d5277350b504e",
+        "identifiers": [
+          [
+            "webostv",
+            "e68d3658-c5a4-5502-3e1d-dba44c46723b"
+          ]
+        ],
+        "manufacturer": "LG",
+        "model": "OLED65C14LB",
+        "name_by_user": null,
+        "name": "tvsala",
+        "sw_version": "03.34.55",
+        "via_device_id": null
+      },
+      {
+        "area_id": "camera",
+        "config_entries": [
+          "e71dd2e328d6501b07eaf709212e084c"
+        ],
+        "configuration_url": null,
+        "connections": [
+          [
+            "mac",
+            "2c:9f:fb:b3:7f:54"
+          ]
+        ],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "c3be652400abcfdc1837015226cfae87",
+        "identifiers": [
+          [
+            "melcloud",
+            "2c:9f:fb:b3:7f:54-2121808093"
+          ]
+        ],
+        "manufacturer": "Mitsubishi Electric",
+        "model": "",
+        "name_by_user": null,
+        "name": "Camera",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "cucina",
+        "config_entries": [
+          "e71dd2e328d6501b07eaf709212e084c"
+        ],
+        "configuration_url": null,
+        "connections": [
+          [
+            "mac",
+            "2c:9f:fb:b5:45:88"
+          ]
+        ],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "d3575b60d081da87a253b07630e6dc9e",
+        "identifiers": [
+          [
+            "melcloud",
+            "2c:9f:fb:b5:45:88-2121913078"
+          ]
+        ],
+        "manufacturer": "Mitsubishi Electric",
+        "model": "",
+        "name_by_user": null,
+        "name": "Cucina",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "sala",
+        "config_entries": [
+          "e71dd2e328d6501b07eaf709212e084c"
+        ],
+        "configuration_url": null,
+        "connections": [
+          [
+            "mac",
+            "2c:9f:fb:a1:bd:59"
+          ]
+        ],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "ffd5a6f1dc4968b16447bbb6b2bd0cbf",
+        "identifiers": [
+          [
+            "melcloud",
+            "2c:9f:fb:a1:bd:59-2055712256"
+          ]
+        ],
+        "manufacturer": "Mitsubishi Electric",
+        "model": "",
+        "name_by_user": null,
+        "name": "Sala",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "studio_andrea",
+        "config_entries": [
+          "e71dd2e328d6501b07eaf709212e084c"
+        ],
+        "configuration_url": null,
+        "connections": [
+          [
+            "mac",
+            "2c:9f:fb:b3:7f:4d"
+          ]
+        ],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "d049ee4e51572d9585f25e85cb1721eb",
+        "identifiers": [
+          [
+            "melcloud",
+            "2c:9f:fb:b3:7f:4d-2121816089"
+          ]
+        ],
+        "manufacturer": "Mitsubishi Electric",
+        "model": "",
+        "name_by_user": null,
+        "name": "Studio",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": null,
+        "config_entries": [
+          "3a84d9d65112c5ce3ccceb241bc45db5"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "1260d19b9b32bce8cf69e6514e04fbaf",
+        "identifiers": [
+          [
+            "mobile_app",
+            "931688E5-49B5-4B0E-8685-512EEE220D40"
+          ]
+        ],
+        "manufacturer": "Apple",
+        "model": "iPad13,1",
+        "name_by_user": null,
+        "name": "iPad di Andrea",
+        "sw_version": "16.3.1",
+        "via_device_id": null
+      },
+      {
+        "area_id": "garage",
+        "config_entries": [
+          "909df41417903d9f823e025bdecc2cc9"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "18f007452bc01d8bc7099b87260739e7",
+        "identifiers": [
+          [
+            "bmw_connected_drive",
+            "WBA7L110607G66765"
+          ]
+        ],
+        "manufacturer": "BMW",
+        "model": "M135i xDrive",
+        "name_by_user": null,
+        "name": "M135i xDrive",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "studio_andrea",
+        "config_entries": [
+          "acd8aebc8eec5e1f0b787f2906eb33a6"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "59c9280ff417cdafab3064b2e150e644",
+        "identifiers": [
+          [
+            "braviatv",
+            "09050c0c05040d040502060d0d0f0f0b040c0e0b"
+          ]
+        ],
+        "manufacturer": "Sony",
+        "model": "KDL-42W805A",
+        "name_by_user": null,
+        "name": "Sony KDL-42W805A",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "devices",
+        "config_entries": [
+          "4e1c617f536f38a8124e72f67c265bb6"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "3c61aa5a0705d5df417cba91852b2bbf",
+        "identifiers": [
+          [
+            "tradfri",
+            "7e586d52044000a7"
+          ]
+        ],
+        "manufacturer": "IKEA of Sweden",
+        "model": "E1526",
+        "name_by_user": null,
+        "name": "Gateway",
+        "sw_version": "1.19.46",
+        "via_device_id": null
+      },
+      {
+        "area_id": "studio_andrea",
+        "config_entries": [
+          "4e1c617f536f38a8124e72f67c265bb6"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "979165842a45328e2a909234296ff4f7",
+        "identifiers": [
+          [
+            "tradfri",
+            65536
+          ]
+        ],
+        "manufacturer": "IKEA of Sweden",
+        "model": "TRADFRI Driver 30W",
+        "name_by_user": null,
+        "name": "Led studio",
+        "sw_version": "2.3.086",
+        "via_device_id": "3c61aa5a0705d5df417cba91852b2bbf"
+      },
+      {
+        "area_id": "sala",
+        "config_entries": [
+          "4e1c617f536f38a8124e72f67c265bb6"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "54b0df875eb8eaca3324d67b49cea1a3",
+        "identifiers": [
+          [
+            "tradfri",
+            65537
+          ]
+        ],
+        "manufacturer": "IKEA of Sweden",
+        "model": "TRADFRI Driver 10W",
+        "name_by_user": null,
+        "name": "Led TV",
+        "sw_version": "2.3.086",
+        "via_device_id": "3c61aa5a0705d5df417cba91852b2bbf"
+      },
+      {
+        "area_id": "sala",
+        "config_entries": [
+          "7fdaca2b09dacc85927a95316dc9c6f9"
+        ],
+        "configuration_url": null,
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "79a9f5a1d707b91e96965a0b1c42e483",
+        "identifiers": [
+          [
+            "nest",
+            "enterprises/f7e36d2e-54ab-44bf-b082-0f98aa805c93/devices/AVPHwEtwWE2zooyparVRAQvxnIRHOthdnezt3woIU5F99zWyBrySWCxVESJ8jeUEDry3Yqo2RYhQiAQZdUbjvse70enLeA"
+          ]
+        ],
+        "manufacturer": "Google Nest",
+        "model": "Thermostat",
+        "name_by_user": null,
+        "name": "Sala",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "devices",
+        "config_entries": [
+          "6db9b32c23e20627f589d9021ce66240"
+        ],
+        "configuration_url": "homeassistant://hacs",
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": "service",
+        "hw_version": null,
+        "id": "23da9e5e4618988f331311dcf77a8e59",
+        "identifiers": [
+          [
+            "hacs",
+            "0717a0cd-745c-48fd-9b16-c8534c9704f9-bc944b0f-fd42-4a58-a072-ade38d1444cd"
+          ]
+        ],
+        "manufacturer": "hacs.xyz",
+        "model": "",
+        "name_by_user": null,
+        "name": "HACS",
+        "sw_version": "1.30.1",
+        "via_device_id": null
+      },
+      {
+        "area_id": "devices",
+        "config_entries": [
+          "e69ae64345d03babdf2c9009d3c5e729"
+        ],
+        "configuration_url": "https://jcwillox.github.io/hass-auto-backup",
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": "service",
+        "hw_version": null,
+        "id": "826198572af17876cb6a4867ba92f619",
+        "identifiers": [
+          [
+            "auto_backup",
+            "e69ae64345d03babdf2c9009d3c5e729"
+          ]
+        ],
+        "manufacturer": "Auto Backup",
+        "model": null,
+        "name_by_user": null,
+        "name": "Auto Backup",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "sala",
+        "config_entries": [
+          "c5c241fe1ddb13c8c8e7dd793015873b"
+        ],
+        "configuration_url": "http://172.31.3.12",
+        "connections": [
+          [
+            "mac",
+            "60:a4:23:be:c5:e6"
+          ]
+        ],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": "gen1 (SHMOS-01)",
+        "id": "94bb2a983d1dc3c4eff5dfbf25add133",
+        "identifiers": [],
+        "manufacturer": "Shelly",
+        "model": "Shelly Motion",
+        "name_by_user": null,
+        "name": "shellymotionsensor-60A423BEC5E6",
+        "sw_version": "",
+        "via_device_id": null
+      },
+      {
+        "area_id": "studio_andrea",
+        "config_entries": [
+          "569af43351f9ac6ec8b99943f93c10c1",
+          "910519c0d78390335ba1e0c276abe001"
+        ],
+        "configuration_url": "http://172.31.3.13",
+        "connections": [
+          [
+            "mac",
+            "34:94:54:75:ff:93"
+          ]
+        ],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": "gen1 (SHSW-1)",
+        "id": "15114edc374e4bc4967da0d3185c61e3",
+        "identifiers": [],
+        "manufacturer": "Shelly",
+        "model": "Shelly 1",
+        "name_by_user": null,
+        "name": "Luci studio Andrea",
+        "sw_version": "20221027-091427/v1.12.1-ga9117d3",
+        "via_device_id": null
+      },
+      {
+        "area_id": null,
+        "config_entries": [
+          "526825eb75ac394e7c5deaedc265271a"
+        ],
+        "configuration_url": "https://icloud.com/",
+        "connections": [],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": null,
+        "id": "6c0ac02c664ecb26871c85ffa740acf9",
+        "identifiers": [
+          [
+            "icloud",
+            "+Bz5/5BH9CL4p4e+7Fcsia/rO1dqUrMDUw1NnFDYwX0HEdrA4nNB7Q+XFxymZjIN1MkF+ZeiHi+nQow3Ir8Kqn2my0MEGC7R2osAaNqzIM0="
+          ]
+        ],
+        "manufacturer": "Apple",
+        "model": "MacBook Pro 14\"",
+        "name_by_user": null,
+        "name": "sgangaleG4L4W",
+        "sw_version": null,
+        "via_device_id": null
+      },
+      {
+        "area_id": "studio_sara",
+        "config_entries": [
+          "8b256daf398ff39eef103ee93f7fc47f",
+          "469b2dd982c3a04735618a0db92d0ec2"
+        ],
+        "configuration_url": "http://172.31.3.14",
+        "connections": [
+          [
+            "mac",
+            "34:94:54:76:15:6c"
+          ]
+        ],
+        "disabled_by": null,
+        "entry_type": null,
+        "hw_version": "gen1 (SHSW-1)",
+        "id": "a98d85634d8d47a104722511f4b3355f",
+        "identifiers": [],
+        "manufacturer": "Shelly",
+        "model": "Shelly 1",
+        "name_by_user": null,
+        "name": "Luce studio sara ",
+        "sw_version": "20221027-091427/v1.12.1-ga9117d3",
+        "via_device_id": null
+      },
+      {
+        "area_id": "devices",
+        "config_entries": [
+          "041a46ca07f44ceb75cbed17361fe032"
+        ],
+        "configuration_url": null,
+        "connections": [
+          [
+            "mac",
+            "2a:58:26:02:44:39"
+          ]
+        ],
+        "disabled_by": null,
+        "entry_type": "service",
+        "hw_version": null,
+        "id": "00fdebe0bc8e7f5fc8aee77805d70b11",
+        "identifiers": [
+          [
+            "homekit",
+            "041a46ca07f44ceb75cbed17361fe032",
+            "homekit.bridge"
+          ]
+        ],
+        "manufacturer": "Home Assistant",
+        "model": "HomeKit Bridge",
+        "name_by_user": null,
+        "name": "HASS Bridge:21064",
+        "sw_version": null,
+        "via_device_id": null
+      }
+    ],
+    "deleted_devices": [
+      {
+        "config_entries": [],
+        "connections": [
+          [
+            "mac",
+            "32:d3:63:04:09:1d"
+          ]
+        ],
+        "identifiers": [
+          [
+            "homekit",
+            "f81e99012f0d6e88235d551dc6391a29",
+            "homekit.bridge"
+          ]
+        ],
+        "id": "fab6cf2a4e0488ff7610055f715eee6d",
+        "orphaned_timestamp": 1676222891.6060693
+      },
+      {
+        "config_entries": [],
+        "connections": [
+          [
+            "mac",
+            "b1:c7:47:c3:d6:7e"
+          ]
+        ],
+        "identifiers": [
+          [
+            "homekit",
+            "b1142c28aa636de21c11e6d7a3617fe3",
+            "homekit.bridge"
+          ]
+        ],
+        "id": "d60d00e7f72ad75ba22bdac9839e752a",
+        "orphaned_timestamp": 1676222896.351303
+      },
+      {
+        "config_entries": [],
+        "connections": [
+          [
+            "mac",
+            "47:d6:be:67:57:44"
+          ]
+        ],
+        "identifiers": [
+          [
+            "homekit",
+            "44b79f99bb317a71c2951ff5080428e4",
+            "homekit.bridge"
+          ]
+        ],
+        "id": "ac00acdf12ee5193928384d5bd89bb84",
+        "orphaned_timestamp": 1676222899.08466
+      }
+    ]
+  }
+}

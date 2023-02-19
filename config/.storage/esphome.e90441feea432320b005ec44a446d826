@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "esphome.e90441feea432320b005ec44a446d826",
+  "data": {
+    "device_info": {
+      "uses_password": false,
+      "name": "scrivania",
+      "friendly_name": "",
+      "mac_address": "34:86:5D:FC:84:D8",
+      "compilation_time": "Jan 19 2023, 19:18:42",
+      "model": "esp32dev",
+      "manufacturer": "Espressif",
+      "has_deep_sleep": false,
+      "esphome_version": "2022.12.3",
+      "project_name": "",
+      "project_version": "",
+      "webserver_port": 0,
+      "bluetooth_proxy_version": 0
+    },
+    "services": [],
+    "api_version": {
+      "major": 1,
+      "minor": 7
+    },
+    "sensor": [
+      {
+        "object_id": "desk_height",
+        "key": 1630608536,
+        "name": "Desk Height",
+        "unique_id": "scrivaniasensordesk_height",
+        "disabled_by_default": false,
+        "icon": "mdi:arrow-up-down",
+        "entity_category": 0,
+        "device_class": "",
+        "unit_of_measurement": "cm",
+        "accuracy_decimals": 1,
+        "force_update": false,
+        "state_class": 0,
+        "last_reset_type": 0
+      },
+      {
+        "object_id": "desk_speed",
+        "key": 2928094678,
+        "name": "Desk Speed",
+        "unique_id": "scrivaniasensordesk_speed",
+        "disabled_by_default": false,
+        "icon": "mdi:speedometer",
+        "entity_category": 0,
+        "device_class": "",
+        "unit_of_measurement": "cm/min",
+        "accuracy_decimals": 0,
+        "force_update": false,
+        "state_class": 0,
+        "last_reset_type": 0
+      }
+    ],
+    "text_sensor": [],
+    "cover": [
+      {
+        "object_id": "scrivania",
+        "key": 780198089,
+        "name": "Scrivania",
+        "unique_id": "scrivaniacoverscrivania",
+        "disabled_by_default": false,
+        "icon": "",
+        "entity_category": 0,
+        "assumed_state": false,
+        "supports_position": true,
+        "supports_tilt": false,
+        "device_class": ""
+      }
+    ],
+    "binary_sensor": [
+      {
+        "object_id": "desk_connection",
+        "key": 3445031861,
+        "name": "Desk Connection",
+        "unique_id": "scrivaniabinary_sensordesk_connection",
+        "disabled_by_default": false,
+        "icon": "",
+        "entity_category": 0,
+        "device_class": "",
+        "is_status_binary_sensor": false
+      },
+      {
+        "object_id": "desk_moving",
+        "key": 382204387,
+        "name": "Desk Moving",
+        "unique_id": "scrivaniabinary_sensordesk_moving",
+        "disabled_by_default": false,
+        "icon": "",
+        "entity_category": 0,
+        "device_class": "",
+        "is_status_binary_sensor": false
+      }
+    ]
+  }
+}

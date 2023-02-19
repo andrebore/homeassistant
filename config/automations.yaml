@@ -1,0 +1,289 @@
+- id: '1674680670552'
+  alias: accendi led con la tv - sala
+  description: ''
+  trigger:
+  - platform: device
+    device_id: f9a8b282d59648ba148d5277350b504e
+    domain: media_player
+    entity_id: media_player.tvsala
+    type: turned_on
+  condition:
+  - condition: sun
+    after: sunset
+  action:
+  - type: turn_on
+    device_id: 54b0df875eb8eaca3324d67b49cea1a3
+    entity_id: light.led_tv
+    domain: light
+    brightness_pct: 50
+  mode: single
+- id: '1674680717117'
+  alias: spegni led con la tv - sala
+  description: ''
+  trigger:
+  - platform: device
+    device_id: f9a8b282d59648ba148d5277350b504e
+    domain: media_player
+    entity_id: media_player.tvsala
+    type: turned_off
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: light.shelly1_34945470cd9c
+      state: 'on'
+    - condition: state
+      entity_id: light.shellysw2
+      state: 'on'
+  action:
+  - type: turn_off
+    device_id: 54b0df875eb8eaca3324d67b49cea1a3
+    entity_id: light.led_tv
+    domain: light
+  mode: single
+- id: '1674680870368'
+  alias: accendi led tv dopo il tramonto - sala
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 0
+  condition:
+  - condition: device
+    device_id: f9a8b282d59648ba148d5277350b504e
+    domain: media_player
+    entity_id: media_player.tvsala
+    type: is_on
+  action:
+  - type: turn_on
+    device_id: 54b0df875eb8eaca3324d67b49cea1a3
+    entity_id: light.led_tv
+    domain: light
+    brightness_pct: 30
+  mode: single
+- id: '1674680923057'
+  alias: accendi led con la tv - studio
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_on
+    device_id: 59c9280ff417cdafab3064b2e150e644
+    entity_id: remote.sony_kdl_42w805a
+    domain: remote
+  condition:
+  - condition: sun
+    after: sunset
+  action:
+  - type: turn_on
+    device_id: 979165842a45328e2a909234296ff4f7
+    entity_id: light.led_studio
+    domain: light
+    brightness_pct: 50
+  mode: single
+- id: '1674681030918'
+  alias: spegni led con la tv - studio
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_off
+    device_id: 59c9280ff417cdafab3064b2e150e644
+    entity_id: remote.sony_kdl_42w805a
+    domain: remote
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 979165842a45328e2a909234296ff4f7
+    entity_id: light.led_studio
+    domain: light
+  mode: single
+- id: '1674681093258'
+  alias: accendi led tv dopo il tramonto - studio
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 0
+  condition:
+  - condition: device
+    type: is_on
+    device_id: 59c9280ff417cdafab3064b2e150e644
+    entity_id: remote.sony_kdl_42w805a
+    domain: remote
+  action:
+  - type: turn_on
+    device_id: 979165842a45328e2a909234296ff4f7
+    entity_id: light.led_studio
+    domain: light
+    brightness_pct: 30
+  mode: single
+- id: '1675635102217'
+  alias: luci di benvenuto
+  description: ''
+  trigger:
+  - platform: device
+    device_id: 75b3eeb468bc937546130557ec439c20
+    domain: device_tracker
+    entity_id: device_tracker.iphone_2
+    type: enters
+    zone: zone.home
+  - platform: device
+    device_id: 78507ecdfe1d3d2e0c2a63a0c79e078e
+    domain: device_tracker
+    entity_id: device_tracker.iphone_di_andrea
+    type: enters
+    zone: zone.home
+  condition:
+  - condition: sun
+    after: sunset
+  - condition: state
+    entity_id: light.luci_zona_giorno
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.welcome_lights
+  mode: single
+- id: '1675636047997'
+  alias: luci spente quando si esce
+  description: ''
+  trigger:
+  - platform: device
+    device_id: 75b3eeb468bc937546130557ec439c20
+    domain: device_tracker
+    entity_id: device_tracker.iphone_2
+    type: leaves
+    zone: zone.home
+  - platform: device
+    device_id: 78507ecdfe1d3d2e0c2a63a0c79e078e
+    domain: device_tracker
+    entity_id: device_tracker.iphone_di_andrea
+    type: leaves
+    zone: zone.home
+  condition:
+  - condition: and
+    conditions:
+    - condition: device
+      device_id: 75b3eeb468bc937546130557ec439c20
+      domain: device_tracker
+      entity_id: device_tracker.iphone_2
+      type: is_not_home
+    - condition: device
+      device_id: 78507ecdfe1d3d2e0c2a63a0c79e078e
+      domain: device_tracker
+      entity_id: device_tracker.iphone_di_andrea
+      type: is_not_home
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.tutte_le_luci
+  mode: single
+- id: '1675637153975'
+  alias: Automatic Backups
+  description: ''
+  use_blueprint:
+    path: jcwillox/automatic_backups.yaml
+    input:
+      use_action_hourly: true
+      enable_yearly: true
+      enable_monthly: true
+      enable_weekly: true
+      enable_daily: true
+- id: '1675637801177'
+  alias: Notify - Auto Backup
+  description: ''
+  use_blueprint:
+    path: jcwillox/notify_auto_backup.yaml
+    input:
+      devices:
+      - 78507ecdfe1d3d2e0c2a63a0c79e078e
+      notify_hass: true
+      events:
+      - auto_backup.backup_failed
+      - auto_backup.backup_successful
+- id: '1675638011071'
+  alias: Avvisami quando sara arriva
+  description: ''
+  trigger:
+  - platform: device
+    device_id: 75b3eeb468bc937546130557ec439c20
+    domain: device_tracker
+    entity_id: device_tracker.iphone_2
+    type: enters
+    zone: zone.home
+  condition: []
+  action:
+  - service: notify.mobile_app_iphone_di_andrea
+    data:
+      message: Sara sta arrivando a casa
+  mode: single
+- id: '1675692128873'
+  alias: luci di cortesia per la notte
+  description: ''
+  condition:
+  - condition: and
+    conditions:
+    - condition: sun
+      before: sunrise
+      after: sunset
+    - condition: state
+      entity_id: light.luci_zona_giorno
+      state: 'off'
+  use_blueprint:
+    path: Aleks130699/motion_light_brightness.yaml
+    input:
+      motion_entity: binary_sensor.shellymotionsensor_60a423bec5e6_motion
+      on_night_time: 00:00:00
+      off_night_time: '23:59:59'
+      day_brightness: 2
+      night_brightness: 2
+      no_motion_wait_day: 240
+      no_motion_wait_night: 240
+      light_target:
+        device_id: 54b0df875eb8eaca3324d67b49cea1a3
+- id: '1676032725508'
+  alias: accendi clima in camera se la temperatura scende sotto 18
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: climate.camera
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+    attribute: current_temperature
+    below: 18
+  condition:
+  - condition: sun
+    before: sunrise
+    after: sunset
+  action:
+  - service: climate.set_temperature
+    data:
+      hvac_mode: heat
+      temperature: 19
+    target:
+      device_id: c3be652400abcfdc1837015226cfae87
+  - service: climate.turn_on
+    data: {}
+    target:
+      device_id: c3be652400abcfdc1837015226cfae87
+  mode: single
+- id: '1676033261313'
+  alias: spegni clima se la temperatura sale a 19
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: climate.camera
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    attribute: current_temperature
+    above: 19
+  condition: []
+  action:
+  - service: climate.turn_off
+    data: {}
+    target:
+      device_id: c3be652400abcfdc1837015226cfae87
+  mode: single

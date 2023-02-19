@@ -1,0 +1,2 @@
+turn_off_proxmox: "ssh -i /config/ssh_keys/id_rsa -o 'StrictHostKeyChecking=no' root@172.31.1.7 systemctl poweroff"
+turn_off_nosuchdesktop: "curl http://172.31.1.100:5001/01548885349/shutdown"

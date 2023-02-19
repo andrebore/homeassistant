@@ -1,0 +1,4077 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "trace.saved_traces",
+  "data": {
+    "automation.1675692128873": [
+      {
+        "extended_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "51f88368efc9d9b2ce60ae824b1e9c72",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-18T21:35:47.673773+00:00",
+            "finish": "2023-02-18T21:35:47.676113+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675692128873",
+          "trigger": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2023-02-18T21:35:47.674029+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.luci_di_cortesia_per_la_notte",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2023-02-17T17:10:39.567153+00:00",
+                      "mode": "restart",
+                      "current": 0,
+                      "id": "1675692128873",
+                      "friendly_name": "luci di cortesia per la notte"
+                    },
+                    "last_changed": "2023-02-18T21:34:19.978643+00:00",
+                    "last_updated": "2023-02-18T21:34:19.978643+00:00",
+                    "context": {
+                      "id": "01GSK761TAGBRFPP8PAVE7GR2W",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "state",
+                    "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                    "from_state": {
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "state": "off",
+                      "attributes": {
+                        "device_class": "motion",
+                        "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                      },
+                      "last_changed": "2023-02-18T21:34:14.656555+00:00",
+                      "last_updated": "2023-02-18T21:34:14.656555+00:00",
+                      "context": {
+                        "id": "01GSK75WM02V2JBR8K27VC8PV5",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "state": "on",
+                      "attributes": {
+                        "device_class": "motion",
+                        "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                      },
+                      "last_changed": "2023-02-18T21:35:47.669233+00:00",
+                      "last_updated": "2023-02-18T21:35:47.669233+00:00",
+                      "context": {
+                        "id": "01GSK78QEN1ADKY6RNXEJVAYXC",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "for": null,
+                    "attribute": null,
+                    "description": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion"
+                  }
+                }
+              }
+            ],
+            "condition/0": [
+              {
+                "path": "condition/0",
+                "timestamp": "2023-02-18T21:35:47.674239+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/0": [
+              {
+                "path": "condition/0/conditions/0",
+                "timestamp": "2023-02-18T21:35:47.674367+00:00",
+                "result": {
+                  "wanted_time_before": "2023-02-18T06:19:48.337815+00:00",
+                  "wanted_time_after": "2023-02-18T16:56:09.782515+00:00",
+                  "result": true
+                }
+              }
+            ],
+            "condition/0/conditions/1": [
+              {
+                "path": "condition/0/conditions/1",
+                "timestamp": "2023-02-18T21:35:47.675713+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/1/entity_id/0": [
+              {
+                "path": "condition/0/conditions/1/entity_id/0",
+                "timestamp": "2023-02-18T21:35:47.675865+00:00",
+                "result": {
+                  "result": false,
+                  "state": "on",
+                  "wanted_state": "off"
+                }
+              }
+            ]
+          },
+          "config": {
+            "mode": "restart",
+            "max_exceeded": "silent",
+            "trigger": {
+              "platform": "state",
+              "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+              "from": "off",
+              "to": "on"
+            },
+            "action": [
+              {
+                "choose": [
+                  {
+                    "conditions": [
+                      {
+                        "condition": "time",
+                        "after": "00:00:00",
+                        "before": "23:59:59"
+                      }
+                    ],
+                    "sequence": [
+                      {
+                        "alias": "Turn on the light",
+                        "service": "light.turn_on",
+                        "data": {
+                          "brightness_pct": 2
+                        },
+                        "target": {
+                          "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                        }
+                      },
+                      {
+                        "alias": "Wait until there is no motion from device",
+                        "wait_for_trigger": {
+                          "platform": "state",
+                          "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                          "from": "on",
+                          "to": "off"
+                        }
+                      },
+                      {
+                        "alias": "Wait the number of seconds that has been set",
+                        "delay": 240
+                      },
+                      {
+                        "alias": "Turn off the light",
+                        "service": "light.turn_off",
+                        "target": {
+                          "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "default": [
+                  {
+                    "alias": "Turn on the light",
+                    "service": "light.turn_on",
+                    "data": {
+                      "brightness_pct": 2
+                    },
+                    "target": {
+                      "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                    }
+                  },
+                  {
+                    "alias": "Wait until there is no motion from device",
+                    "wait_for_trigger": {
+                      "platform": "state",
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "from": "on",
+                      "to": "off"
+                    }
+                  },
+                  {
+                    "alias": "Wait the number of seconds that has been set",
+                    "delay": 240
+                  },
+                  {
+                    "alias": "Turn off the light",
+                    "service": "light.turn_off",
+                    "target": {
+                      "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                    }
+                  }
+                ]
+              }
+            ],
+            "id": "1675692128873",
+            "alias": "luci di cortesia per la notte",
+            "description": "",
+            "condition": [
+              {
+                "condition": "and",
+                "conditions": [
+                  {
+                    "condition": "sun",
+                    "before": "sunrise",
+                    "after": "sunset"
+                  },
+                  {
+                    "condition": "state",
+                    "entity_id": "light.luci_zona_giorno",
+                    "state": "off"
+                  }
+                ]
+              }
+            ]
+          },
+          "blueprint_inputs": {
+            "id": "1675692128873",
+            "alias": "luci di cortesia per la notte",
+            "description": "",
+            "condition": [
+              {
+                "condition": "and",
+                "conditions": [
+                  {
+                    "condition": "sun",
+                    "before": "sunrise",
+                    "after": "sunset"
+                  },
+                  {
+                    "condition": "state",
+                    "entity_id": "light.luci_zona_giorno",
+                    "state": "off"
+                  }
+                ]
+              }
+            ],
+            "use_blueprint": {
+              "path": "Aleks130699/motion_light_brightness.yaml",
+              "input": {
+                "motion_entity": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                "on_night_time": "00:00:00",
+                "off_night_time": "23:59:59",
+                "day_brightness": 2,
+                "night_brightness": 2,
+                "no_motion_wait_day": 240,
+                "no_motion_wait_night": 240,
+                "light_target": {
+                  "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                }
+              }
+            }
+          },
+          "context": {
+            "id": "01GSK78QESA5M953982Q8NZFCT",
+            "parent_id": "01GSK78QEN1ADKY6RNXEJVAYXC",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "51f88368efc9d9b2ce60ae824b1e9c72",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-18T21:35:47.673773+00:00",
+            "finish": "2023-02-18T21:35:47.676113+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675692128873",
+          "trigger": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion"
+        }
+      },
+      {
+        "extended_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "3f48bdc89e889b0f47605838aaf0bc27",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-18T21:59:19.673164+00:00",
+            "finish": "2023-02-18T21:59:19.675022+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675692128873",
+          "trigger": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2023-02-18T21:59:19.673349+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.luci_di_cortesia_per_la_notte",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2023-02-17T17:10:39.567153+00:00",
+                      "mode": "restart",
+                      "current": 0,
+                      "id": "1675692128873",
+                      "friendly_name": "luci di cortesia per la notte"
+                    },
+                    "last_changed": "2023-02-18T21:54:16.623476+00:00",
+                    "last_updated": "2023-02-18T21:54:16.623476+00:00",
+                    "context": {
+                      "id": "01GSK8AJDFB6GTJ1YS47GQTR30",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "state",
+                    "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                    "from_state": {
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "state": "off",
+                      "attributes": {
+                        "device_class": "motion",
+                        "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                      },
+                      "last_changed": "2023-02-18T21:54:13.596642+00:00",
+                      "last_updated": "2023-02-18T21:54:13.596642+00:00",
+                      "context": {
+                        "id": "01GSK8AFEWVFEEW7MG0PGMAPXN",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "state": "on",
+                      "attributes": {
+                        "device_class": "motion",
+                        "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                      },
+                      "last_changed": "2023-02-18T21:59:19.668930+00:00",
+                      "last_updated": "2023-02-18T21:59:19.668930+00:00",
+                      "context": {
+                        "id": "01GSK8KTBMV3MM9C478GAZEVGW",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "for": null,
+                    "attribute": null,
+                    "description": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion"
+                  }
+                }
+              }
+            ],
+            "condition/0": [
+              {
+                "path": "condition/0",
+                "timestamp": "2023-02-18T21:59:19.673500+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/0": [
+              {
+                "path": "condition/0/conditions/0",
+                "timestamp": "2023-02-18T21:59:19.673605+00:00",
+                "result": {
+                  "wanted_time_before": "2023-02-18T06:19:48.337815+00:00",
+                  "wanted_time_after": "2023-02-18T16:56:09.782515+00:00",
+                  "result": true
+                }
+              }
+            ],
+            "condition/0/conditions/1": [
+              {
+                "path": "condition/0/conditions/1",
+                "timestamp": "2023-02-18T21:59:19.674676+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/1/entity_id/0": [
+              {
+                "path": "condition/0/conditions/1/entity_id/0",
+                "timestamp": "2023-02-18T21:59:19.674771+00:00",
+                "result": {
+                  "result": false,
+                  "state": "on",
+                  "wanted_state": "off"
+                }
+              }
+            ]
+          },
+          "config": {
+            "mode": "restart",
+            "max_exceeded": "silent",
+            "trigger": {
+              "platform": "state",
+              "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+              "from": "off",
+              "to": "on"
+            },
+            "action": [
+              {
+                "choose": [
+                  {
+                    "conditions": [
+                      {
+                        "condition": "time",
+                        "after": "00:00:00",
+                        "before": "23:59:59"
+                      }
+                    ],
+                    "sequence": [
+                      {
+                        "alias": "Turn on the light",
+                        "service": "light.turn_on",
+                        "data": {
+                          "brightness_pct": 2
+                        },
+                        "target": {
+                          "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                        }
+                      },
+                      {
+                        "alias": "Wait until there is no motion from device",
+                        "wait_for_trigger": {
+                          "platform": "state",
+                          "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                          "from": "on",
+                          "to": "off"
+                        }
+                      },
+                      {
+                        "alias": "Wait the number of seconds that has been set",
+                        "delay": 240
+                      },
+                      {
+                        "alias": "Turn off the light",
+                        "service": "light.turn_off",
+                        "target": {
+                          "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "default": [
+                  {
+                    "alias": "Turn on the light",
+                    "service": "light.turn_on",
+                    "data": {
+                      "brightness_pct": 2
+                    },
+                    "target": {
+                      "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                    }
+                  },
+                  {
+                    "alias": "Wait until there is no motion from device",
+                    "wait_for_trigger": {
+                      "platform": "state",
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "from": "on",
+                      "to": "off"
+                    }
+                  },
+                  {
+                    "alias": "Wait the number of seconds that has been set",
+                    "delay": 240
+                  },
+                  {
+                    "alias": "Turn off the light",
+                    "service": "light.turn_off",
+                    "target": {
+                      "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                    }
+                  }
+                ]
+              }
+            ],
+            "id": "1675692128873",
+            "alias": "luci di cortesia per la notte",
+            "description": "",
+            "condition": [
+              {
+                "condition": "and",
+                "conditions": [
+                  {
+                    "condition": "sun",
+                    "before": "sunrise",
+                    "after": "sunset"
+                  },
+                  {
+                    "condition": "state",
+                    "entity_id": "light.luci_zona_giorno",
+                    "state": "off"
+                  }
+                ]
+              }
+            ]
+          },
+          "blueprint_inputs": {
+            "id": "1675692128873",
+            "alias": "luci di cortesia per la notte",
+            "description": "",
+            "condition": [
+              {
+                "condition": "and",
+                "conditions": [
+                  {
+                    "condition": "sun",
+                    "before": "sunrise",
+                    "after": "sunset"
+                  },
+                  {
+                    "condition": "state",
+                    "entity_id": "light.luci_zona_giorno",
+                    "state": "off"
+                  }
+                ]
+              }
+            ],
+            "use_blueprint": {
+              "path": "Aleks130699/motion_light_brightness.yaml",
+              "input": {
+                "motion_entity": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                "on_night_time": "00:00:00",
+                "off_night_time": "23:59:59",
+                "day_brightness": 2,
+                "night_brightness": 2,
+                "no_motion_wait_day": 240,
+                "no_motion_wait_night": 240,
+                "light_target": {
+                  "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                }
+              }
+            }
+          },
+          "context": {
+            "id": "01GSK8KTBRBQDXS66MWND0M7XN",
+            "parent_id": "01GSK8KTBMV3MM9C478GAZEVGW",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "3f48bdc89e889b0f47605838aaf0bc27",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-18T21:59:19.673164+00:00",
+            "finish": "2023-02-18T21:59:19.675022+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675692128873",
+          "trigger": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion"
+        }
+      },
+      {
+        "extended_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "30c08dbf10748b04afcd237e874559d2",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-18T22:08:10.327496+00:00",
+            "finish": "2023-02-18T22:08:10.329213+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675692128873",
+          "trigger": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2023-02-18T22:08:10.327647+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.luci_di_cortesia_per_la_notte",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2023-02-17T17:10:39.567153+00:00",
+                      "mode": "restart",
+                      "current": 0,
+                      "id": "1675692128873",
+                      "friendly_name": "luci di cortesia per la notte"
+                    },
+                    "last_changed": "2023-02-18T21:54:16.623476+00:00",
+                    "last_updated": "2023-02-18T21:54:16.623476+00:00",
+                    "context": {
+                      "id": "01GSK8AJDFB6GTJ1YS47GQTR30",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "state",
+                    "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                    "from_state": {
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "state": "off",
+                      "attributes": {
+                        "device_class": "motion",
+                        "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                      },
+                      "last_changed": "2023-02-18T22:05:32.851980+00:00",
+                      "last_updated": "2023-02-18T22:05:32.851980+00:00",
+                      "context": {
+                        "id": "01GSK8Z6SKZM1GSWYYTYSYDSNK",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "state": "on",
+                      "attributes": {
+                        "device_class": "motion",
+                        "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                      },
+                      "last_changed": "2023-02-18T22:08:10.326383+00:00",
+                      "last_updated": "2023-02-18T22:08:10.326383+00:00",
+                      "context": {
+                        "id": "01GSK940JPJZ89DT3JHXT9Z156",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "for": null,
+                    "attribute": null,
+                    "description": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion"
+                  }
+                }
+              }
+            ],
+            "condition/0": [
+              {
+                "path": "condition/0",
+                "timestamp": "2023-02-18T22:08:10.327774+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/0": [
+              {
+                "path": "condition/0/conditions/0",
+                "timestamp": "2023-02-18T22:08:10.327860+00:00",
+                "result": {
+                  "wanted_time_before": "2023-02-18T06:19:48.337815+00:00",
+                  "wanted_time_after": "2023-02-18T16:56:09.782515+00:00",
+                  "result": true
+                }
+              }
+            ],
+            "condition/0/conditions/1": [
+              {
+                "path": "condition/0/conditions/1",
+                "timestamp": "2023-02-18T22:08:10.328912+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/1/entity_id/0": [
+              {
+                "path": "condition/0/conditions/1/entity_id/0",
+                "timestamp": "2023-02-18T22:08:10.329008+00:00",
+                "result": {
+                  "result": false,
+                  "state": "on",
+                  "wanted_state": "off"
+                }
+              }
+            ]
+          },
+          "config": {
+            "mode": "restart",
+            "max_exceeded": "silent",
+            "trigger": {
+              "platform": "state",
+              "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+              "from": "off",
+              "to": "on"
+            },
+            "action": [
+              {
+                "choose": [
+                  {
+                    "conditions": [
+                      {
+                        "condition": "time",
+                        "after": "00:00:00",
+                        "before": "23:59:59"
+                      }
+                    ],
+                    "sequence": [
+                      {
+                        "alias": "Turn on the light",
+                        "service": "light.turn_on",
+                        "data": {
+                          "brightness_pct": 2
+                        },
+                        "target": {
+                          "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                        }
+                      },
+                      {
+                        "alias": "Wait until there is no motion from device",
+                        "wait_for_trigger": {
+                          "platform": "state",
+                          "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                          "from": "on",
+                          "to": "off"
+                        }
+                      },
+                      {
+                        "alias": "Wait the number of seconds that has been set",
+                        "delay": 240
+                      },
+                      {
+                        "alias": "Turn off the light",
+                        "service": "light.turn_off",
+                        "target": {
+                          "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "default": [
+                  {
+                    "alias": "Turn on the light",
+                    "service": "light.turn_on",
+                    "data": {
+                      "brightness_pct": 2
+                    },
+                    "target": {
+                      "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                    }
+                  },
+                  {
+                    "alias": "Wait until there is no motion from device",
+                    "wait_for_trigger": {
+                      "platform": "state",
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "from": "on",
+                      "to": "off"
+                    }
+                  },
+                  {
+                    "alias": "Wait the number of seconds that has been set",
+                    "delay": 240
+                  },
+                  {
+                    "alias": "Turn off the light",
+                    "service": "light.turn_off",
+                    "target": {
+                      "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                    }
+                  }
+                ]
+              }
+            ],
+            "id": "1675692128873",
+            "alias": "luci di cortesia per la notte",
+            "description": "",
+            "condition": [
+              {
+                "condition": "and",
+                "conditions": [
+                  {
+                    "condition": "sun",
+                    "before": "sunrise",
+                    "after": "sunset"
+                  },
+                  {
+                    "condition": "state",
+                    "entity_id": "light.luci_zona_giorno",
+                    "state": "off"
+                  }
+                ]
+              }
+            ]
+          },
+          "blueprint_inputs": {
+            "id": "1675692128873",
+            "alias": "luci di cortesia per la notte",
+            "description": "",
+            "condition": [
+              {
+                "condition": "and",
+                "conditions": [
+                  {
+                    "condition": "sun",
+                    "before": "sunrise",
+                    "after": "sunset"
+                  },
+                  {
+                    "condition": "state",
+                    "entity_id": "light.luci_zona_giorno",
+                    "state": "off"
+                  }
+                ]
+              }
+            ],
+            "use_blueprint": {
+              "path": "Aleks130699/motion_light_brightness.yaml",
+              "input": {
+                "motion_entity": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                "on_night_time": "00:00:00",
+                "off_night_time": "23:59:59",
+                "day_brightness": 2,
+                "night_brightness": 2,
+                "no_motion_wait_day": 240,
+                "no_motion_wait_night": 240,
+                "light_target": {
+                  "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                }
+              }
+            }
+          },
+          "context": {
+            "id": "01GSK940JQM34F12YK1M7457YB",
+            "parent_id": "01GSK940JPJZ89DT3JHXT9Z156",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "30c08dbf10748b04afcd237e874559d2",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-18T22:08:10.327496+00:00",
+            "finish": "2023-02-18T22:08:10.329213+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675692128873",
+          "trigger": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion"
+        }
+      },
+      {
+        "extended_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "146703c175832bc6e9d796746375785a",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-18T23:22:54.499645+00:00",
+            "finish": "2023-02-18T23:22:54.501587+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675692128873",
+          "trigger": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2023-02-18T23:22:54.499840+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.luci_di_cortesia_per_la_notte",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2023-02-17T17:10:39.567153+00:00",
+                      "mode": "restart",
+                      "current": 0,
+                      "id": "1675692128873",
+                      "friendly_name": "luci di cortesia per la notte"
+                    },
+                    "last_changed": "2023-02-18T21:54:16.623476+00:00",
+                    "last_updated": "2023-02-18T21:54:16.623476+00:00",
+                    "context": {
+                      "id": "01GSK8AJDFB6GTJ1YS47GQTR30",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "state",
+                    "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                    "from_state": {
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "state": "off",
+                      "attributes": {
+                        "device_class": "motion",
+                        "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                      },
+                      "last_changed": "2023-02-18T22:14:39.989694+00:00",
+                      "last_updated": "2023-02-18T22:14:39.989694+00:00",
+                      "context": {
+                        "id": "01GSK9FX3NTGWB4VQBRPNDRYRJ",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "state": "on",
+                      "attributes": {
+                        "device_class": "motion",
+                        "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                      },
+                      "last_changed": "2023-02-18T23:22:54.497317+00:00",
+                      "last_updated": "2023-02-18T23:22:54.497317+00:00",
+                      "context": {
+                        "id": "01GSKDCVN1NR38M13HRWCEPA9N",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "for": null,
+                    "attribute": null,
+                    "description": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion"
+                  }
+                }
+              }
+            ],
+            "condition/0": [
+              {
+                "path": "condition/0",
+                "timestamp": "2023-02-18T23:22:54.499961+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/0": [
+              {
+                "path": "condition/0/conditions/0",
+                "timestamp": "2023-02-18T23:22:54.500068+00:00",
+                "result": {
+                  "wanted_time_before": "2023-02-19T06:18:11.268252+00:00",
+                  "wanted_time_after": "2023-02-19T16:57:36.469498+00:00",
+                  "result": true
+                }
+              }
+            ],
+            "condition/0/conditions/1": [
+              {
+                "path": "condition/0/conditions/1",
+                "timestamp": "2023-02-18T23:22:54.501265+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/1/entity_id/0": [
+              {
+                "path": "condition/0/conditions/1/entity_id/0",
+                "timestamp": "2023-02-18T23:22:54.501373+00:00",
+                "result": {
+                  "result": false,
+                  "state": "on",
+                  "wanted_state": "off"
+                }
+              }
+            ]
+          },
+          "config": {
+            "mode": "restart",
+            "max_exceeded": "silent",
+            "trigger": {
+              "platform": "state",
+              "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+              "from": "off",
+              "to": "on"
+            },
+            "action": [
+              {
+                "choose": [
+                  {
+                    "conditions": [
+                      {
+                        "condition": "time",
+                        "after": "00:00:00",
+                        "before": "23:59:59"
+                      }
+                    ],
+                    "sequence": [
+                      {
+                        "alias": "Turn on the light",
+                        "service": "light.turn_on",
+                        "data": {
+                          "brightness_pct": 2
+                        },
+                        "target": {
+                          "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                        }
+                      },
+                      {
+                        "alias": "Wait until there is no motion from device",
+                        "wait_for_trigger": {
+                          "platform": "state",
+                          "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                          "from": "on",
+                          "to": "off"
+                        }
+                      },
+                      {
+                        "alias": "Wait the number of seconds that has been set",
+                        "delay": 240
+                      },
+                      {
+                        "alias": "Turn off the light",
+                        "service": "light.turn_off",
+                        "target": {
+                          "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "default": [
+                  {
+                    "alias": "Turn on the light",
+                    "service": "light.turn_on",
+                    "data": {
+                      "brightness_pct": 2
+                    },
+                    "target": {
+                      "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                    }
+                  },
+                  {
+                    "alias": "Wait until there is no motion from device",
+                    "wait_for_trigger": {
+                      "platform": "state",
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "from": "on",
+                      "to": "off"
+                    }
+                  },
+                  {
+                    "alias": "Wait the number of seconds that has been set",
+                    "delay": 240
+                  },
+                  {
+                    "alias": "Turn off the light",
+                    "service": "light.turn_off",
+                    "target": {
+                      "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                    }
+                  }
+                ]
+              }
+            ],
+            "id": "1675692128873",
+            "alias": "luci di cortesia per la notte",
+            "description": "",
+            "condition": [
+              {
+                "condition": "and",
+                "conditions": [
+                  {
+                    "condition": "sun",
+                    "before": "sunrise",
+                    "after": "sunset"
+                  },
+                  {
+                    "condition": "state",
+                    "entity_id": "light.luci_zona_giorno",
+                    "state": "off"
+                  }
+                ]
+              }
+            ]
+          },
+          "blueprint_inputs": {
+            "id": "1675692128873",
+            "alias": "luci di cortesia per la notte",
+            "description": "",
+            "condition": [
+              {
+                "condition": "and",
+                "conditions": [
+                  {
+                    "condition": "sun",
+                    "before": "sunrise",
+                    "after": "sunset"
+                  },
+                  {
+                    "condition": "state",
+                    "entity_id": "light.luci_zona_giorno",
+                    "state": "off"
+                  }
+                ]
+              }
+            ],
+            "use_blueprint": {
+              "path": "Aleks130699/motion_light_brightness.yaml",
+              "input": {
+                "motion_entity": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                "on_night_time": "00:00:00",
+                "off_night_time": "23:59:59",
+                "day_brightness": 2,
+                "night_brightness": 2,
+                "no_motion_wait_day": 240,
+                "no_motion_wait_night": 240,
+                "light_target": {
+                  "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                }
+              }
+            }
+          },
+          "context": {
+            "id": "01GSKDCVN3KA4H7GEWQAP419SW",
+            "parent_id": "01GSKDCVN1NR38M13HRWCEPA9N",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "146703c175832bc6e9d796746375785a",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-18T23:22:54.499645+00:00",
+            "finish": "2023-02-18T23:22:54.501587+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675692128873",
+          "trigger": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion"
+        }
+      },
+      {
+        "extended_dict": {
+          "last_step": "action/0/choose/0/sequence/3",
+          "run_id": "6654e7e7dc698f14ccee181ce0e2f782",
+          "state": "stopped",
+          "script_execution": "finished",
+          "timestamp": {
+            "start": "2023-02-18T23:35:09.319347+00:00",
+            "finish": "2023-02-18T23:42:08.468532+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675692128873",
+          "trigger": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2023-02-18T23:35:09.319511+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.luci_di_cortesia_per_la_notte",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2023-02-17T17:10:39.567153+00:00",
+                      "mode": "restart",
+                      "current": 0,
+                      "id": "1675692128873",
+                      "friendly_name": "luci di cortesia per la notte"
+                    },
+                    "last_changed": "2023-02-18T21:54:16.623476+00:00",
+                    "last_updated": "2023-02-18T21:54:16.623476+00:00",
+                    "context": {
+                      "id": "01GSK8AJDFB6GTJ1YS47GQTR30",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "state",
+                    "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                    "from_state": {
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "state": "off",
+                      "attributes": {
+                        "device_class": "motion",
+                        "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                      },
+                      "last_changed": "2023-02-18T23:25:54.398675+00:00",
+                      "last_updated": "2023-02-18T23:25:54.398675+00:00",
+                      "context": {
+                        "id": "01GSKDJBAYPVFSZP08M4PF40BG",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "state": "on",
+                      "attributes": {
+                        "device_class": "motion",
+                        "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                      },
+                      "last_changed": "2023-02-18T23:35:09.318189+00:00",
+                      "last_updated": "2023-02-18T23:35:09.318189+00:00",
+                      "context": {
+                        "id": "01GSKE3986K8DRMMH4M19WQ2T8",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "for": null,
+                    "attribute": null,
+                    "description": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion"
+                  }
+                }
+              }
+            ],
+            "condition/0": [
+              {
+                "path": "condition/0",
+                "timestamp": "2023-02-18T23:35:09.319643+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "condition/0/conditions/0": [
+              {
+                "path": "condition/0/conditions/0",
+                "timestamp": "2023-02-18T23:35:09.319739+00:00",
+                "result": {
+                  "wanted_time_before": "2023-02-19T06:18:11.268252+00:00",
+                  "wanted_time_after": "2023-02-19T16:57:36.469498+00:00",
+                  "result": true
+                }
+              }
+            ],
+            "condition/0/conditions/1": [
+              {
+                "path": "condition/0/conditions/1",
+                "timestamp": "2023-02-18T23:35:09.320761+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "condition/0/conditions/1/entity_id/0": [
+              {
+                "path": "condition/0/conditions/1/entity_id/0",
+                "timestamp": "2023-02-18T23:35:09.320861+00:00",
+                "result": {
+                  "result": true,
+                  "state": "off",
+                  "wanted_state": "off"
+                }
+              }
+            ],
+            "action/0": [
+              {
+                "path": "action/0",
+                "timestamp": "2023-02-18T23:35:09.322371+00:00",
+                "changed_variables": {
+                  "context": {
+                    "id": "01GSKE3987NMG2DHMCH7405CDH",
+                    "parent_id": "01GSKE3986K8DRMMH4M19WQ2T8",
+                    "user_id": null
+                  }
+                },
+                "result": {
+                  "choice": 0
+                }
+              }
+            ],
+            "action/0/choose/0": [
+              {
+                "path": "action/0/choose/0",
+                "timestamp": "2023-02-18T23:35:09.323741+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "action/0/choose/0/conditions/0": [
+              {
+                "path": "action/0/choose/0/conditions/0",
+                "timestamp": "2023-02-18T23:35:09.323872+00:00",
+                "result": {
+                  "after": {
+                    "__type": "<class 'datetime.time'>",
+                    "isoformat": "00:00:00"
+                  },
+                  "now_time": {
+                    "__type": "<class 'datetime.time'>",
+                    "isoformat": "00:35:09.323934"
+                  },
+                  "before": {
+                    "__type": "<class 'datetime.time'>",
+                    "isoformat": "23:59:59"
+                  },
+                  "result": true
+                }
+              }
+            ],
+            "action/0/choose/0/sequence/0": [
+              {
+                "path": "action/0/choose/0/sequence/0",
+                "timestamp": "2023-02-18T23:35:09.325257+00:00",
+                "result": {
+                  "params": {
+                    "domain": "light",
+                    "service": "turn_on",
+                    "service_data": {
+                      "brightness_pct": 2,
+                      "device_id": [
+                        "54b0df875eb8eaca3324d67b49cea1a3"
+                      ]
+                    },
+                    "target": {
+                      "device_id": [
+                        "54b0df875eb8eaca3324d67b49cea1a3"
+                      ]
+                    }
+                  },
+                  "running_script": false,
+                  "limit": 10
+                }
+              }
+            ],
+            "action/0/choose/0/sequence/1": [
+              {
+                "path": "action/0/choose/0/sequence/1",
+                "timestamp": "2023-02-18T23:35:09.344197+00:00",
+                "result": {
+                  "wait": {
+                    "remaining": null,
+                    "trigger": {
+                      "id": "0",
+                      "idx": "0",
+                      "alias": null,
+                      "platform": "state",
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "from_state": {
+                        "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                        "state": "on",
+                        "attributes": {
+                          "device_class": "motion",
+                          "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                        },
+                        "last_changed": "2023-02-18T23:35:09.318189+00:00",
+                        "last_updated": "2023-02-18T23:35:09.318189+00:00",
+                        "context": {
+                          "id": "01GSKE3986K8DRMMH4M19WQ2T8",
+                          "parent_id": null,
+                          "user_id": null
+                        }
+                      },
+                      "to_state": {
+                        "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                        "state": "off",
+                        "attributes": {
+                          "device_class": "motion",
+                          "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                        },
+                        "last_changed": "2023-02-18T23:38:08.450645+00:00",
+                        "last_updated": "2023-02-18T23:38:08.450645+00:00",
+                        "context": {
+                          "id": "01GSKE8R62JGQ21G07BFNWKGVT",
+                          "parent_id": null,
+                          "user_id": null
+                        }
+                      },
+                      "for": null,
+                      "attribute": null,
+                      "description": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion"
+                    }
+                  }
+                }
+              }
+            ],
+            "action/0/choose/0/sequence/2": [
+              {
+                "path": "action/0/choose/0/sequence/2",
+                "timestamp": "2023-02-18T23:38:08.452192+00:00",
+                "changed_variables": {
+                  "wait": {
+                    "remaining": null,
+                    "trigger": {
+                      "id": "0",
+                      "idx": "0",
+                      "alias": null,
+                      "platform": "state",
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "from_state": {
+                        "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                        "state": "on",
+                        "attributes": {
+                          "device_class": "motion",
+                          "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                        },
+                        "last_changed": "2023-02-18T23:35:09.318189+00:00",
+                        "last_updated": "2023-02-18T23:35:09.318189+00:00",
+                        "context": {
+                          "id": "01GSKE3986K8DRMMH4M19WQ2T8",
+                          "parent_id": null,
+                          "user_id": null
+                        }
+                      },
+                      "to_state": {
+                        "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                        "state": "off",
+                        "attributes": {
+                          "device_class": "motion",
+                          "friendly_name": "shellymotionsensor-60A423BEC5E6 motion"
+                        },
+                        "last_changed": "2023-02-18T23:38:08.450645+00:00",
+                        "last_updated": "2023-02-18T23:38:08.450645+00:00",
+                        "context": {
+                          "id": "01GSKE8R62JGQ21G07BFNWKGVT",
+                          "parent_id": null,
+                          "user_id": null
+                        }
+                      },
+                      "for": null,
+                      "attribute": null,
+                      "description": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion"
+                    }
+                  }
+                },
+                "result": {
+                  "delay": 240.0,
+                  "done": true
+                }
+              }
+            ],
+            "action/0/choose/0/sequence/3": [
+              {
+                "path": "action/0/choose/0/sequence/3",
+                "timestamp": "2023-02-18T23:42:08.456483+00:00",
+                "result": {
+                  "params": {
+                    "domain": "light",
+                    "service": "turn_off",
+                    "service_data": {},
+                    "target": {
+                      "device_id": [
+                        "54b0df875eb8eaca3324d67b49cea1a3"
+                      ]
+                    }
+                  },
+                  "running_script": false,
+                  "limit": 10
+                }
+              }
+            ]
+          },
+          "config": {
+            "mode": "restart",
+            "max_exceeded": "silent",
+            "trigger": {
+              "platform": "state",
+              "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+              "from": "off",
+              "to": "on"
+            },
+            "action": [
+              {
+                "choose": [
+                  {
+                    "conditions": [
+                      {
+                        "condition": "time",
+                        "after": "00:00:00",
+                        "before": "23:59:59"
+                      }
+                    ],
+                    "sequence": [
+                      {
+                        "alias": "Turn on the light",
+                        "service": "light.turn_on",
+                        "data": {
+                          "brightness_pct": 2
+                        },
+                        "target": {
+                          "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                        }
+                      },
+                      {
+                        "alias": "Wait until there is no motion from device",
+                        "wait_for_trigger": {
+                          "platform": "state",
+                          "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                          "from": "on",
+                          "to": "off"
+                        }
+                      },
+                      {
+                        "alias": "Wait the number of seconds that has been set",
+                        "delay": 240
+                      },
+                      {
+                        "alias": "Turn off the light",
+                        "service": "light.turn_off",
+                        "target": {
+                          "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "default": [
+                  {
+                    "alias": "Turn on the light",
+                    "service": "light.turn_on",
+                    "data": {
+                      "brightness_pct": 2
+                    },
+                    "target": {
+                      "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                    }
+                  },
+                  {
+                    "alias": "Wait until there is no motion from device",
+                    "wait_for_trigger": {
+                      "platform": "state",
+                      "entity_id": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                      "from": "on",
+                      "to": "off"
+                    }
+                  },
+                  {
+                    "alias": "Wait the number of seconds that has been set",
+                    "delay": 240
+                  },
+                  {
+                    "alias": "Turn off the light",
+                    "service": "light.turn_off",
+                    "target": {
+                      "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                    }
+                  }
+                ]
+              }
+            ],
+            "id": "1675692128873",
+            "alias": "luci di cortesia per la notte",
+            "description": "",
+            "condition": [
+              {
+                "condition": "and",
+                "conditions": [
+                  {
+                    "condition": "sun",
+                    "before": "sunrise",
+                    "after": "sunset"
+                  },
+                  {
+                    "condition": "state",
+                    "entity_id": "light.luci_zona_giorno",
+                    "state": "off"
+                  }
+                ]
+              }
+            ]
+          },
+          "blueprint_inputs": {
+            "id": "1675692128873",
+            "alias": "luci di cortesia per la notte",
+            "description": "",
+            "condition": [
+              {
+                "condition": "and",
+                "conditions": [
+                  {
+                    "condition": "sun",
+                    "before": "sunrise",
+                    "after": "sunset"
+                  },
+                  {
+                    "condition": "state",
+                    "entity_id": "light.luci_zona_giorno",
+                    "state": "off"
+                  }
+                ]
+              }
+            ],
+            "use_blueprint": {
+              "path": "Aleks130699/motion_light_brightness.yaml",
+              "input": {
+                "motion_entity": "binary_sensor.shellymotionsensor_60a423bec5e6_motion",
+                "on_night_time": "00:00:00",
+                "off_night_time": "23:59:59",
+                "day_brightness": 2,
+                "night_brightness": 2,
+                "no_motion_wait_day": 240,
+                "no_motion_wait_night": 240,
+                "light_target": {
+                  "device_id": "54b0df875eb8eaca3324d67b49cea1a3"
+                }
+              }
+            }
+          },
+          "context": {
+            "id": "01GSKE3987NMG2DHMCH7405CDH",
+            "parent_id": "01GSKE3986K8DRMMH4M19WQ2T8",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "action/0/choose/0/sequence/3",
+          "run_id": "6654e7e7dc698f14ccee181ce0e2f782",
+          "state": "stopped",
+          "script_execution": "finished",
+          "timestamp": {
+            "start": "2023-02-18T23:35:09.319347+00:00",
+            "finish": "2023-02-18T23:42:08.468532+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675692128873",
+          "trigger": "state of binary_sensor.shellymotionsensor_60a423bec5e6_motion"
+        }
+      }
+    ],
+    "automation.1674680670552": [
+      {
+        "extended_dict": {
+          "last_step": "action/0",
+          "run_id": "a9de6834fb05a61f4c55bc2d29277bbb",
+          "state": "stopped",
+          "script_execution": "finished",
+          "timestamp": {
+            "start": "2023-02-18T22:08:22.269157+00:00",
+            "finish": "2023-02-18T22:08:22.284076+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1674680670552",
+          "trigger": "state of media_player.tvsala",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2023-02-18T22:08:22.269334+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.accendi_led_con_la_tv",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2023-02-16T19:21:46.350977+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "id": "1674680670552",
+                      "friendly_name": "accendi led con la tv - sala"
+                    },
+                    "last_changed": "2023-02-18T21:54:16.608830+00:00",
+                    "last_updated": "2023-02-18T21:54:16.608830+00:00",
+                    "context": {
+                      "id": "01GSK8AJD01MMHX1K4JRGQ1E4J",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "device",
+                    "entity_id": "media_player.tvsala",
+                    "from_state": {
+                      "entity_id": "media_player.tvsala",
+                      "state": "off",
+                      "attributes": {
+                        "source_list": [
+                          "Amazon Alexa",
+                          "Apple Music",
+                          "Apple TV",
+                          "Apps",
+                          "Art Gallery",
+                          "Browser Web",
+                          "DVD Player",
+                          "Disney+",
+                          "Explore Google Assistant",
+                          "HDMI 2",
+                          "HDMI 3",
+                          "Home Dashboard",
+                          "LG Channels",
+                          "Lettore Multimediale",
+                          "Live TV",
+                          "Netflix",
+                          "Nintendo Switch Console giochi",
+                          "Plex",
+                          "Prime Video",
+                          "RaiPlay",
+                          "Rakuten TV",
+                          "Sports Alert",
+                          "Twitch",
+                          "YouTube"
+                        ],
+                        "sound_output": "tv_speaker",
+                        "assumed_state": true,
+                        "device_class": "tv",
+                        "friendly_name": "tvsala",
+                        "supported_features": 24381
+                      },
+                      "last_changed": "2023-02-18T21:54:11.026094+00:00",
+                      "last_updated": "2023-02-18T22:08:21.894405+00:00",
+                      "context": {
+                        "id": "01GSK94BW6XH7F40JNTQP26GBB",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "media_player.tvsala",
+                      "state": "on",
+                      "attributes": {
+                        "source_list": [
+                          "Amazon Alexa",
+                          "Apple Music",
+                          "Apple TV",
+                          "Apps",
+                          "Art Gallery",
+                          "Browser Web",
+                          "DVD Player",
+                          "Disney+",
+                          "Explore Google Assistant",
+                          "HDMI 2",
+                          "HDMI 3",
+                          "Home Dashboard",
+                          "LG Channels",
+                          "Lettore Multimediale",
+                          "Live TV",
+                          "Netflix",
+                          "Nintendo Switch Console giochi",
+                          "Plex",
+                          "Prime Video",
+                          "RaiPlay",
+                          "Rakuten TV",
+                          "Sports Alert",
+                          "Twitch",
+                          "YouTube"
+                        ],
+                        "volume_level": 0.21,
+                        "is_volume_muted": false,
+                        "source": "DVD Player",
+                        "sound_output": "tv_speaker",
+                        "assumed_state": true,
+                        "device_class": "tv",
+                        "friendly_name": "tvsala",
+                        "supported_features": 24381
+                      },
+                      "last_changed": "2023-02-18T22:08:22.268065+00:00",
+                      "last_updated": "2023-02-18T22:08:22.268065+00:00",
+                      "context": {
+                        "id": "01GSK94C7WPZ2722ABVREVE0NH",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "for": null,
+                    "attribute": null,
+                    "description": "state of media_player.tvsala"
+                  }
+                }
+              }
+            ],
+            "condition/0": [
+              {
+                "path": "condition/0",
+                "timestamp": "2023-02-18T22:08:22.269472+00:00",
+                "result": {
+                  "wanted_time_after": "2023-02-18T16:56:09.782515+00:00",
+                  "result": true
+                }
+              }
+            ],
+            "action/0": [
+              {
+                "path": "action/0",
+                "timestamp": "2023-02-18T22:08:22.271916+00:00",
+                "changed_variables": {
+                  "context": {
+                    "id": "01GSK94C7W5MY9621CRRJKAB41",
+                    "parent_id": "01GSK94C7WPZ2722ABVREVE0NH",
+                    "user_id": null
+                  }
+                }
+              }
+            ]
+          },
+          "config": {
+            "id": "1674680670552",
+            "alias": "accendi led con la tv - sala",
+            "description": "",
+            "trigger": [
+              {
+                "platform": "device",
+                "device_id": "f9a8b282d59648ba148d5277350b504e",
+                "domain": "media_player",
+                "entity_id": "media_player.tvsala",
+                "type": "turned_on"
+              }
+            ],
+            "condition": [
+              {
+                "condition": "sun",
+                "after": "sunset"
+              }
+            ],
+            "action": [
+              {
+                "type": "turn_on",
+                "device_id": "54b0df875eb8eaca3324d67b49cea1a3",
+                "entity_id": "light.led_tv",
+                "domain": "light",
+                "brightness_pct": 50
+              }
+            ],
+            "mode": "single"
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01GSK94C7W5MY9621CRRJKAB41",
+            "parent_id": "01GSK94C7WPZ2722ABVREVE0NH",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "action/0",
+          "run_id": "a9de6834fb05a61f4c55bc2d29277bbb",
+          "state": "stopped",
+          "script_execution": "finished",
+          "timestamp": {
+            "start": "2023-02-18T22:08:22.269157+00:00",
+            "finish": "2023-02-18T22:08:22.284076+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1674680670552",
+          "trigger": "state of media_player.tvsala"
+        }
+      },
+      {
+        "extended_dict": {
+          "last_step": "condition/0",
+          "run_id": "d7a9641d9f41a72adf641ae460f9acbb",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-19T08:42:38.415020+00:00",
+            "finish": "2023-02-19T08:42:38.416277+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1674680670552",
+          "trigger": "state of media_player.tvsala",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2023-02-19T08:42:38.415198+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.accendi_led_con_la_tv",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2023-02-18T22:08:22.270830+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "id": "1674680670552",
+                      "friendly_name": "accendi led con la tv - sala"
+                    },
+                    "last_changed": "2023-02-18T21:54:16.608830+00:00",
+                    "last_updated": "2023-02-18T22:08:22.283668+00:00",
+                    "context": {
+                      "id": "01GSK94C7W5MY9621CRRJKAB41",
+                      "parent_id": "01GSK94C7WPZ2722ABVREVE0NH",
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "device",
+                    "entity_id": "media_player.tvsala",
+                    "from_state": {
+                      "entity_id": "media_player.tvsala",
+                      "state": "off",
+                      "attributes": {
+                        "source_list": [
+                          "Amazon Alexa",
+                          "Apple Music",
+                          "Apple TV",
+                          "Apps",
+                          "Art Gallery",
+                          "Browser Web",
+                          "DVD Player",
+                          "Disney+",
+                          "Explore Google Assistant",
+                          "HDMI 2",
+                          "HDMI 3",
+                          "Home Dashboard",
+                          "LG Channels",
+                          "Lettore Multimediale",
+                          "Live TV",
+                          "Netflix",
+                          "Nintendo Switch Console giochi",
+                          "Plex",
+                          "Prime Video",
+                          "RaiPlay",
+                          "Rakuten TV",
+                          "Sports Alert",
+                          "Twitch",
+                          "YouTube"
+                        ],
+                        "assumed_state": true,
+                        "device_class": "tv",
+                        "friendly_name": "tvsala",
+                        "supported_features": 24381
+                      },
+                      "last_changed": "2023-02-18T23:22:13.115083+00:00",
+                      "last_updated": "2023-02-18T23:22:44.436768+00:00",
+                      "context": {
+                        "id": "01GSKDCHTMBH2KEPF5J0QZMJ6S",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "media_player.tvsala",
+                      "state": "on",
+                      "attributes": {
+                        "source_list": [
+                          "Amazon Alexa",
+                          "Apple Music",
+                          "Apple TV",
+                          "Apps",
+                          "Art Gallery",
+                          "Browser Web",
+                          "DVD Player",
+                          "Disney+",
+                          "Explore Google Assistant",
+                          "HDMI 2",
+                          "HDMI 3",
+                          "Home Dashboard",
+                          "LG Channels",
+                          "Lettore Multimediale",
+                          "Live TV",
+                          "Netflix",
+                          "Nintendo Switch Console giochi",
+                          "Plex",
+                          "Prime Video",
+                          "RaiPlay",
+                          "Rakuten TV",
+                          "Sports Alert",
+                          "Twitch",
+                          "YouTube"
+                        ],
+                        "volume_level": 0.17,
+                        "is_volume_muted": false,
+                        "source": "DVD Player",
+                        "sound_output": "tv_speaker",
+                        "assumed_state": true,
+                        "device_class": "tv",
+                        "friendly_name": "tvsala",
+                        "supported_features": 24381
+                      },
+                      "last_changed": "2023-02-19T08:42:38.412702+00:00",
+                      "last_updated": "2023-02-19T08:42:38.412702+00:00",
+                      "context": {
+                        "id": "01GSMDDRECXW8G3SW8J4C6CSNS",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "for": null,
+                    "attribute": null,
+                    "description": "state of media_player.tvsala"
+                  }
+                }
+              }
+            ],
+            "condition/0": [
+              {
+                "path": "condition/0",
+                "timestamp": "2023-02-19T08:42:38.415333+00:00",
+                "result": {
+                  "wanted_time_after": "2023-02-19T16:57:36.469498+00:00",
+                  "result": false
+                }
+              }
+            ]
+          },
+          "config": {
+            "id": "1674680670552",
+            "alias": "accendi led con la tv - sala",
+            "description": "",
+            "trigger": [
+              {
+                "platform": "device",
+                "device_id": "f9a8b282d59648ba148d5277350b504e",
+                "domain": "media_player",
+                "entity_id": "media_player.tvsala",
+                "type": "turned_on"
+              }
+            ],
+            "condition": [
+              {
+                "condition": "sun",
+                "after": "sunset"
+              }
+            ],
+            "action": [
+              {
+                "type": "turn_on",
+                "device_id": "54b0df875eb8eaca3324d67b49cea1a3",
+                "entity_id": "light.led_tv",
+                "domain": "light",
+                "brightness_pct": 50
+              }
+            ],
+            "mode": "single"
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01GSMDDREEW49508SY1TPK7MKW",
+            "parent_id": "01GSMDDRECXW8G3SW8J4C6CSNS",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "condition/0",
+          "run_id": "d7a9641d9f41a72adf641ae460f9acbb",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-19T08:42:38.415020+00:00",
+            "finish": "2023-02-19T08:42:38.416277+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1674680670552",
+          "trigger": "state of media_player.tvsala"
+        }
+      }
+    ],
+    "automation.1674680717117": [
+      {
+        "extended_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "90fcb3d3a93f8782b811c2cfccd40924",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-18T23:22:13.116679+00:00",
+            "finish": "2023-02-18T23:22:13.118059+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1674680717117",
+          "trigger": "state of media_player.tvsala",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2023-02-18T23:22:13.117024+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.spegni_led_con_la_tv_sala",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2023-02-18T00:30:32.668738+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "id": "1674680717117",
+                      "friendly_name": "spegni led con la tv - sala"
+                    },
+                    "last_changed": "2023-02-18T21:54:16.610196+00:00",
+                    "last_updated": "2023-02-18T21:54:16.610196+00:00",
+                    "context": {
+                      "id": "01GSK8AJD2DHWBQX3N5HME5XCB",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "device",
+                    "entity_id": "media_player.tvsala",
+                    "from_state": {
+                      "entity_id": "media_player.tvsala",
+                      "state": "on",
+                      "attributes": {
+                        "source_list": [
+                          "Amazon Alexa",
+                          "Apple Music",
+                          "Apple TV",
+                          "Apps",
+                          "Art Gallery",
+                          "Browser Web",
+                          "DVD Player",
+                          "Disney+",
+                          "Explore Google Assistant",
+                          "HDMI 2",
+                          "HDMI 3",
+                          "Home Dashboard",
+                          "LG Channels",
+                          "Lettore Multimediale",
+                          "Live TV",
+                          "Netflix",
+                          "Nintendo Switch Console giochi",
+                          "Plex",
+                          "Prime Video",
+                          "RaiPlay",
+                          "Rakuten TV",
+                          "Sports Alert",
+                          "Twitch",
+                          "YouTube"
+                        ],
+                        "volume_level": 0.17,
+                        "is_volume_muted": false,
+                        "source": "DVD Player",
+                        "sound_output": "tv_speaker",
+                        "assumed_state": true,
+                        "device_class": "tv",
+                        "friendly_name": "tvsala",
+                        "supported_features": 24381
+                      },
+                      "last_changed": "2023-02-18T22:08:22.268065+00:00",
+                      "last_updated": "2023-02-18T22:12:06.421489+00:00",
+                      "context": {
+                        "id": "01GSK9B74NZ2CP9WH92EWZ7QG1",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "media_player.tvsala",
+                      "state": "off",
+                      "attributes": {
+                        "source_list": [
+                          "Amazon Alexa",
+                          "Apple Music",
+                          "Apple TV",
+                          "Apps",
+                          "Art Gallery",
+                          "Browser Web",
+                          "DVD Player",
+                          "Disney+",
+                          "Explore Google Assistant",
+                          "HDMI 2",
+                          "HDMI 3",
+                          "Home Dashboard",
+                          "LG Channels",
+                          "Lettore Multimediale",
+                          "Live TV",
+                          "Netflix",
+                          "Nintendo Switch Console giochi",
+                          "Plex",
+                          "Prime Video",
+                          "RaiPlay",
+                          "Rakuten TV",
+                          "Sports Alert",
+                          "Twitch",
+                          "YouTube"
+                        ],
+                        "sound_output": "tv_speaker",
+                        "assumed_state": true,
+                        "device_class": "tv",
+                        "friendly_name": "tvsala",
+                        "supported_features": 24381
+                      },
+                      "last_changed": "2023-02-18T23:22:13.115083+00:00",
+                      "last_updated": "2023-02-18T23:22:13.115083+00:00",
+                      "context": {
+                        "id": "01GSKDBK7V94FZF3NDW4DBKGE1",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "for": null,
+                    "attribute": null,
+                    "description": "state of media_player.tvsala"
+                  }
+                }
+              }
+            ],
+            "condition/0": [
+              {
+                "path": "condition/0",
+                "timestamp": "2023-02-18T23:22:13.117276+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/0": [
+              {
+                "path": "condition/0/conditions/0",
+                "timestamp": "2023-02-18T23:22:13.117405+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/0/entity_id/0": [
+              {
+                "path": "condition/0/conditions/0/entity_id/0",
+                "timestamp": "2023-02-18T23:22:13.117492+00:00",
+                "result": {
+                  "result": false,
+                  "state": "off",
+                  "wanted_state": "on"
+                }
+              }
+            ],
+            "condition/0/conditions/1": [
+              {
+                "path": "condition/0/conditions/1",
+                "timestamp": "2023-02-18T23:22:13.117745+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/1/entity_id/0": [
+              {
+                "path": "condition/0/conditions/1/entity_id/0",
+                "timestamp": "2023-02-18T23:22:13.117832+00:00",
+                "result": {
+                  "result": false,
+                  "state": "off",
+                  "wanted_state": "on"
+                }
+              }
+            ]
+          },
+          "config": {
+            "id": "1674680717117",
+            "alias": "spegni led con la tv - sala",
+            "description": "",
+            "trigger": [
+              {
+                "platform": "device",
+                "device_id": "f9a8b282d59648ba148d5277350b504e",
+                "domain": "media_player",
+                "entity_id": "media_player.tvsala",
+                "type": "turned_off"
+              }
+            ],
+            "condition": [
+              {
+                "condition": "or",
+                "conditions": [
+                  {
+                    "condition": "state",
+                    "entity_id": "light.shelly1_34945470cd9c",
+                    "state": "on"
+                  },
+                  {
+                    "condition": "state",
+                    "entity_id": "light.shellysw2",
+                    "state": "on"
+                  }
+                ]
+              }
+            ],
+            "action": [
+              {
+                "type": "turn_off",
+                "device_id": "54b0df875eb8eaca3324d67b49cea1a3",
+                "entity_id": "light.led_tv",
+                "domain": "light"
+              }
+            ],
+            "mode": "single"
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01GSKDBK7W7ZMC63VBMNG6RYBQ",
+            "parent_id": "01GSKDBK7V94FZF3NDW4DBKGE1",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "90fcb3d3a93f8782b811c2cfccd40924",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-18T23:22:13.116679+00:00",
+            "finish": "2023-02-18T23:22:13.118059+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1674680717117",
+          "trigger": "state of media_player.tvsala"
+        }
+      },
+      {
+        "extended_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "272411853e6be7f7cda387aaa2a66754",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-19T09:45:20.630478+00:00",
+            "finish": "2023-02-19T09:45:20.631504+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1674680717117",
+          "trigger": "state of media_player.tvsala",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2023-02-19T09:45:20.630746+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.spegni_led_con_la_tv_sala",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2023-02-18T00:30:32.668738+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "id": "1674680717117",
+                      "friendly_name": "spegni led con la tv - sala"
+                    },
+                    "last_changed": "2023-02-18T21:54:16.610196+00:00",
+                    "last_updated": "2023-02-18T21:54:16.610196+00:00",
+                    "context": {
+                      "id": "01GSK8AJD2DHWBQX3N5HME5XCB",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "device",
+                    "entity_id": "media_player.tvsala",
+                    "from_state": {
+                      "entity_id": "media_player.tvsala",
+                      "state": "on",
+                      "attributes": {
+                        "source_list": [
+                          "Amazon Alexa",
+                          "Apple Music",
+                          "Apple TV",
+                          "Apps",
+                          "Art Gallery",
+                          "Browser Web",
+                          "DVD Player",
+                          "Disney+",
+                          "Explore Google Assistant",
+                          "HDMI 2",
+                          "HDMI 3",
+                          "Home Dashboard",
+                          "LG Channels",
+                          "Lettore Multimediale",
+                          "Live TV",
+                          "Netflix",
+                          "Nintendo Switch Console giochi",
+                          "Plex",
+                          "Prime Video",
+                          "RaiPlay",
+                          "Rakuten TV",
+                          "Sports Alert",
+                          "Twitch",
+                          "YouTube"
+                        ],
+                        "volume_level": 0.17,
+                        "is_volume_muted": false,
+                        "source": "DVD Player",
+                        "sound_output": "tv_speaker",
+                        "assumed_state": true,
+                        "device_class": "tv",
+                        "friendly_name": "tvsala",
+                        "supported_features": 24381
+                      },
+                      "last_changed": "2023-02-19T08:42:38.412702+00:00",
+                      "last_updated": "2023-02-19T08:42:38.412702+00:00",
+                      "context": {
+                        "id": "01GSMDDRECXW8G3SW8J4C6CSNS",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "media_player.tvsala",
+                      "state": "off",
+                      "attributes": {
+                        "source_list": [
+                          "Amazon Alexa",
+                          "Apple Music",
+                          "Apple TV",
+                          "Apps",
+                          "Art Gallery",
+                          "Browser Web",
+                          "DVD Player",
+                          "Disney+",
+                          "Explore Google Assistant",
+                          "HDMI 2",
+                          "HDMI 3",
+                          "Home Dashboard",
+                          "LG Channels",
+                          "Lettore Multimediale",
+                          "Live TV",
+                          "Netflix",
+                          "Nintendo Switch Console giochi",
+                          "Plex",
+                          "Prime Video",
+                          "RaiPlay",
+                          "Rakuten TV",
+                          "Sports Alert",
+                          "Twitch",
+                          "YouTube"
+                        ],
+                        "sound_output": "tv_speaker",
+                        "assumed_state": true,
+                        "device_class": "tv",
+                        "friendly_name": "tvsala",
+                        "supported_features": 24381
+                      },
+                      "last_changed": "2023-02-19T09:45:20.629521+00:00",
+                      "last_updated": "2023-02-19T09:45:20.629521+00:00",
+                      "context": {
+                        "id": "01GSMH0JFN0JQYFQG90WZSQ75A",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "for": null,
+                    "attribute": null,
+                    "description": "state of media_player.tvsala"
+                  }
+                }
+              }
+            ],
+            "condition/0": [
+              {
+                "path": "condition/0",
+                "timestamp": "2023-02-19T09:45:20.630886+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/0": [
+              {
+                "path": "condition/0/conditions/0",
+                "timestamp": "2023-02-19T09:45:20.630975+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/0/entity_id/0": [
+              {
+                "path": "condition/0/conditions/0/entity_id/0",
+                "timestamp": "2023-02-19T09:45:20.631065+00:00",
+                "result": {
+                  "result": false,
+                  "state": "off",
+                  "wanted_state": "on"
+                }
+              }
+            ],
+            "condition/0/conditions/1": [
+              {
+                "path": "condition/0/conditions/1",
+                "timestamp": "2023-02-19T09:45:20.631255+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/1/entity_id/0": [
+              {
+                "path": "condition/0/conditions/1/entity_id/0",
+                "timestamp": "2023-02-19T09:45:20.631329+00:00",
+                "result": {
+                  "result": false,
+                  "state": "off",
+                  "wanted_state": "on"
+                }
+              }
+            ]
+          },
+          "config": {
+            "id": "1674680717117",
+            "alias": "spegni led con la tv - sala",
+            "description": "",
+            "trigger": [
+              {
+                "platform": "device",
+                "device_id": "f9a8b282d59648ba148d5277350b504e",
+                "domain": "media_player",
+                "entity_id": "media_player.tvsala",
+                "type": "turned_off"
+              }
+            ],
+            "condition": [
+              {
+                "condition": "or",
+                "conditions": [
+                  {
+                    "condition": "state",
+                    "entity_id": "light.shelly1_34945470cd9c",
+                    "state": "on"
+                  },
+                  {
+                    "condition": "state",
+                    "entity_id": "light.shellysw2",
+                    "state": "on"
+                  }
+                ]
+              }
+            ],
+            "action": [
+              {
+                "type": "turn_off",
+                "device_id": "54b0df875eb8eaca3324d67b49cea1a3",
+                "entity_id": "light.led_tv",
+                "domain": "light"
+              }
+            ],
+            "mode": "single"
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01GSMH0JFPQW9S5QQS21R7015S",
+            "parent_id": "01GSMH0JFN0JQYFQG90WZSQ75A",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "272411853e6be7f7cda387aaa2a66754",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-19T09:45:20.630478+00:00",
+            "finish": "2023-02-19T09:45:20.631504+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1674680717117",
+          "trigger": "state of media_player.tvsala"
+        }
+      }
+    ],
+    "automation.1675637153975": [
+      {
+        "extended_dict": {
+          "last_step": "action/0/then/0/choose/3/sequence/2/else/0",
+          "run_id": "f9cbcfa7de4c5617d6a691cc8d571930",
+          "state": "stopped",
+          "script_execution": "finished",
+          "timestamp": {
+            "start": "2023-02-19T01:30:00.250209+00:00",
+            "finish": "2023-02-19T01:30:11.557874+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675637153975",
+          "trigger": "time",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2023-02-19T01:30:01.493940+00:00",
+                "changed_variables": {
+                  "password": "",
+                  "enable_hourly": false,
+                  "enable_daily": true,
+                  "enable_weekly": true,
+                  "enable_monthly": true,
+                  "enable_yearly": true,
+                  "use_action_hourly": true,
+                  "this": {
+                    "entity_id": "automation.automatic_backups",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2023-02-18T01:30:00.460674+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "id": "1675637153975",
+                      "friendly_name": "Automatic Backups"
+                    },
+                    "last_changed": "2023-02-18T21:54:16.619314+00:00",
+                    "last_updated": "2023-02-18T21:54:16.619314+00:00",
+                    "context": {
+                      "id": "01GSK8AJDBVSSNPFW08EMJRNDJ",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "daily",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "time",
+                    "now": "2023-02-19T02:30:00.247969+01:00",
+                    "description": "time",
+                    "entity_id": null
+                  }
+                }
+              }
+            ],
+            "action/0": [
+              {
+                "path": "action/0",
+                "timestamp": "2023-02-19T01:30:01.495578+00:00",
+                "changed_variables": {
+                  "context": {
+                    "id": "01GSKMNJNT3YEMNMDCEW8A3FSV",
+                    "parent_id": null,
+                    "user_id": null
+                  }
+                },
+                "result": {
+                  "choice": "then"
+                }
+              }
+            ],
+            "action/0/if": [
+              {
+                "path": "action/0/if",
+                "timestamp": "2023-02-19T01:30:01.497697+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "action/0/if/condition/0": [
+              {
+                "path": "action/0/if/condition/0",
+                "timestamp": "2023-02-19T01:30:01.497836+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "action/0/then/0": [
+              {
+                "path": "action/0/then/0",
+                "timestamp": "2023-02-19T01:30:01.509548+00:00",
+                "result": {
+                  "choice": 3
+                }
+              }
+            ],
+            "action/0/then/0/choose/0": [
+              {
+                "path": "action/0/then/0/choose/0",
+                "timestamp": "2023-02-19T01:30:01.511876+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "action/0/then/0/choose/0/conditions/0": [
+              {
+                "path": "action/0/then/0/choose/0/conditions/0",
+                "timestamp": "2023-02-19T01:30:01.512019+00:00",
+                "result": {
+                  "result": true,
+                  "entities": []
+                }
+              }
+            ],
+            "action/0/then/0/choose/0/conditions/1": [
+              {
+                "path": "action/0/then/0/choose/0/conditions/1",
+                "timestamp": "2023-02-19T01:30:01.512688+00:00",
+                "result": {
+                  "result": false,
+                  "entities": []
+                }
+              }
+            ],
+            "action/0/then/0/choose/1": [
+              {
+                "path": "action/0/then/0/choose/1",
+                "timestamp": "2023-02-19T01:30:01.516987+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "action/0/then/0/choose/1/conditions/0": [
+              {
+                "path": "action/0/then/0/choose/1/conditions/0",
+                "timestamp": "2023-02-19T01:30:01.517142+00:00",
+                "result": {
+                  "result": true,
+                  "entities": []
+                }
+              }
+            ],
+            "action/0/then/0/choose/1/conditions/1": [
+              {
+                "path": "action/0/then/0/choose/1/conditions/1",
+                "timestamp": "2023-02-19T01:30:01.517667+00:00",
+                "result": {
+                  "result": false,
+                  "entities": []
+                }
+              }
+            ],
+            "action/0/then/0/choose/2": [
+              {
+                "path": "action/0/then/0/choose/2",
+                "timestamp": "2023-02-19T01:30:01.518360+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "action/0/then/0/choose/2/conditions/0": [
+              {
+                "path": "action/0/then/0/choose/2/conditions/0",
+                "timestamp": "2023-02-19T01:30:01.518470+00:00",
+                "result": {
+                  "result": true,
+                  "entities": []
+                }
+              }
+            ],
+            "action/0/then/0/choose/2/conditions/1": [
+              {
+                "path": "action/0/then/0/choose/2/conditions/1",
+                "timestamp": "2023-02-19T01:30:01.518954+00:00",
+                "result": {
+                  "result": false,
+                  "entities": []
+                }
+              }
+            ],
+            "action/0/then/0/choose/3": [
+              {
+                "path": "action/0/then/0/choose/3",
+                "timestamp": "2023-02-19T01:30:01.519647+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "action/0/then/0/choose/3/conditions/0": [
+              {
+                "path": "action/0/then/0/choose/3/conditions/0",
+                "timestamp": "2023-02-19T01:30:01.519756+00:00",
+                "result": {
+                  "result": true,
+                  "entities": []
+                }
+              }
+            ],
+            "action/0/then/0/choose/3/sequence/0": [
+              {
+                "path": "action/0/then/0/choose/3/sequence/0",
+                "timestamp": "2023-02-19T01:30:01.528960+00:00"
+              }
+            ],
+            "action/0/then/0/choose/3/sequence/1": [
+              {
+                "path": "action/0/then/0/choose/3/sequence/1",
+                "timestamp": "2023-02-19T01:30:01.529381+00:00",
+                "changed_variables": {
+                  "backup_type": "daily",
+                  "keep_days": 7
+                }
+              }
+            ],
+            "action/0/then/0/choose/3/sequence/2": [
+              {
+                "path": "action/0/then/0/choose/3/sequence/2",
+                "timestamp": "2023-02-19T01:30:01.544426+00:00",
+                "changed_variables": {
+                  "name": "DailyBackup: Sunday, February 19, 2023",
+                  "backup_action": [
+                    {
+                      "service": "auto_backup.backup",
+                      "data": {
+                        "name": "DailyBackup: Sunday, February 19, 2023",
+                        "password": "",
+                        "keep_days": 7,
+                        "include_folders": [
+                          "config"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "result": {
+                  "choice": "else"
+                }
+              }
+            ],
+            "action/0/then/0/choose/3/sequence/2/if": [
+              {
+                "path": "action/0/then/0/choose/3/sequence/2/if",
+                "timestamp": "2023-02-19T01:30:01.545403+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "action/0/then/0/choose/3/sequence/2/if/condition/0": [
+              {
+                "path": "action/0/then/0/choose/3/sequence/2/if/condition/0",
+                "timestamp": "2023-02-19T01:30:01.545565+00:00",
+                "result": {
+                  "result": false,
+                  "entities": []
+                }
+              }
+            ],
+            "action/0/then/0/choose/3/sequence/2/else/0": [
+              {
+                "path": "action/0/then/0/choose/3/sequence/2/else/0",
+                "timestamp": "2023-02-19T01:30:01.550126+00:00",
+                "result": {
+                  "params": {
+                    "domain": "auto_backup",
+                    "service": "backup",
+                    "service_data": {
+                      "name": "DailyBackup: Sunday, February 19, 2023",
+                      "password": "",
+                      "keep_days": 7
+                    },
+                    "target": {}
+                  },
+                  "running_script": false,
+                  "limit": 10
+                }
+              }
+            ]
+          },
+          "config": {
+            "mode": "single",
+            "variables": {
+              "password": "",
+              "enable_hourly": false,
+              "enable_daily": true,
+              "enable_weekly": true,
+              "enable_monthly": true,
+              "enable_yearly": true,
+              "use_action_hourly": true
+            },
+            "trigger": [
+              {
+                "id": "daily",
+                "platform": "time",
+                "at": "02:30:00"
+              },
+              {
+                "id": "hourly",
+                "enabled": false,
+                "platform": "time_pattern",
+                "hours": "/3"
+              }
+            ],
+            "condition": [],
+            "action": [
+              {
+                "if": {
+                  "condition": "trigger",
+                  "id": "daily"
+                },
+                "then": [
+                  {
+                    "choose": [
+                      {
+                        "conditions": [
+                          "{{ enable_yearly }}",
+                          "{{ now().day == 1 and now().month == 1 }}"
+                        ],
+                        "sequence": [
+                          {
+                            "variables": {
+                              "backup_type": "yearly",
+                              "keep_days": null
+                            }
+                          },
+                          {
+                            "variables": {
+                              "name": "{{ backup_type | title }}Backup: {{\n  now().strftime(\n    \"%A, \"\n    ~ iif(backup_type == \"hourly\", \"%-I:%M %p, \", \"\")\n    ~ \"%B %-d, %Y\"\n  )\n}}\n{# HourlyBackup: Monday, 3:04 PM, January 2, 2006 #}\n{# DailyBackup: Monday, January 2, 2006 #}\n",
+                              "backup_action": [
+                                {
+                                  "service": "auto_backup.backup",
+                                  "data": {
+                                    "name": "{{ name }}",
+                                    "password": "{{ password }}",
+                                    "keep_days": "{{ keep_days }}",
+                                    "include_folders": [
+                                      "config"
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "if": [
+                              "{{ not use_action_hourly }}",
+                              "{{ backup_action | length > 0 }}"
+                            ],
+                            "then": [
+                              {
+                                "service": "auto_backup.backup",
+                                "data": {
+                                  "name": "{{ name }}",
+                                  "password": "{{ password }}",
+                                  "keep_days": "{{ keep_days }}",
+                                  "include_folders": [
+                                    "config"
+                                  ]
+                                }
+                              }
+                            ],
+                            "else": [
+                              {
+                                "alias": "Creating a full backup (default action)",
+                                "service": "auto_backup.backup",
+                                "data": {
+                                  "name": "{{ name }}",
+                                  "password": "{{ password }}",
+                                  "keep_days": "{{ keep_days }}"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "conditions": [
+                          "{{ enable_monthly }}",
+                          "{{ now().day == 1 }}"
+                        ],
+                        "sequence": [
+                          {
+                            "variables": {
+                              "backup_type": "monthly",
+                              "keep_days": 365
+                            }
+                          },
+                          {
+                            "variables": {
+                              "name": "{{ backup_type | title }}Backup: {{\n  now().strftime(\n    \"%A, \"\n    ~ iif(backup_type == \"hourly\", \"%-I:%M %p, \", \"\")\n    ~ \"%B %-d, %Y\"\n  )\n}}\n{# HourlyBackup: Monday, 3:04 PM, January 2, 2006 #}\n{# DailyBackup: Monday, January 2, 2006 #}\n",
+                              "backup_action": [
+                                {
+                                  "service": "auto_backup.backup",
+                                  "data": {
+                                    "name": "{{ name }}",
+                                    "password": "{{ password }}",
+                                    "keep_days": "{{ keep_days }}",
+                                    "include_folders": [
+                                      "config"
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "if": [
+                              "{{ not use_action_hourly }}",
+                              "{{ backup_action | length > 0 }}"
+                            ],
+                            "then": [
+                              {
+                                "service": "auto_backup.backup",
+                                "data": {
+                                  "name": "{{ name }}",
+                                  "password": "{{ password }}",
+                                  "keep_days": "{{ keep_days }}",
+                                  "include_folders": [
+                                    "config"
+                                  ]
+                                }
+                              }
+                            ],
+                            "else": [
+                              {
+                                "alias": "Creating a full backup (default action)",
+                                "service": "auto_backup.backup",
+                                "data": {
+                                  "name": "{{ name }}",
+                                  "password": "{{ password }}",
+                                  "keep_days": "{{ keep_days }}"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "conditions": [
+                          "{{ enable_weekly }}",
+                          "{{ now().weekday() == 0 }}"
+                        ],
+                        "sequence": [
+                          {
+                            "variables": {
+                              "backup_type": "weekly",
+                              "keep_days": 30.4167
+                            }
+                          },
+                          {
+                            "variables": {
+                              "name": "{{ backup_type | title }}Backup: {{\n  now().strftime(\n    \"%A, \"\n    ~ iif(backup_type == \"hourly\", \"%-I:%M %p, \", \"\")\n    ~ \"%B %-d, %Y\"\n  )\n}}\n{# HourlyBackup: Monday, 3:04 PM, January 2, 2006 #}\n{# DailyBackup: Monday, January 2, 2006 #}\n",
+                              "backup_action": [
+                                {
+                                  "service": "auto_backup.backup",
+                                  "data": {
+                                    "name": "{{ name }}",
+                                    "password": "{{ password }}",
+                                    "keep_days": "{{ keep_days }}",
+                                    "include_folders": [
+                                      "config"
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "if": [
+                              "{{ not use_action_hourly }}",
+                              "{{ backup_action | length > 0 }}"
+                            ],
+                            "then": [
+                              {
+                                "service": "auto_backup.backup",
+                                "data": {
+                                  "name": "{{ name }}",
+                                  "password": "{{ password }}",
+                                  "keep_days": "{{ keep_days }}",
+                                  "include_folders": [
+                                    "config"
+                                  ]
+                                }
+                              }
+                            ],
+                            "else": [
+                              {
+                                "alias": "Creating a full backup (default action)",
+                                "service": "auto_backup.backup",
+                                "data": {
+                                  "name": "{{ name }}",
+                                  "password": "{{ password }}",
+                                  "keep_days": "{{ keep_days }}"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "conditions": [
+                          "{{ enable_daily }}"
+                        ],
+                        "sequence": [
+                          {
+                            "variables": {
+                              "backup_type": "daily",
+                              "keep_days": 7
+                            }
+                          },
+                          {
+                            "variables": {
+                              "name": "{{ backup_type | title }}Backup: {{\n  now().strftime(\n    \"%A, \"\n    ~ iif(backup_type == \"hourly\", \"%-I:%M %p, \", \"\")\n    ~ \"%B %-d, %Y\"\n  )\n}}\n{# HourlyBackup: Monday, 3:04 PM, January 2, 2006 #}\n{# DailyBackup: Monday, January 2, 2006 #}\n",
+                              "backup_action": [
+                                {
+                                  "service": "auto_backup.backup",
+                                  "data": {
+                                    "name": "{{ name }}",
+                                    "password": "{{ password }}",
+                                    "keep_days": "{{ keep_days }}",
+                                    "include_folders": [
+                                      "config"
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "if": [
+                              "{{ not use_action_hourly }}",
+                              "{{ backup_action | length > 0 }}"
+                            ],
+                            "then": [
+                              {
+                                "service": "auto_backup.backup",
+                                "data": {
+                                  "name": "{{ name }}",
+                                  "password": "{{ password }}",
+                                  "keep_days": "{{ keep_days }}",
+                                  "include_folders": [
+                                    "config"
+                                  ]
+                                }
+                              }
+                            ],
+                            "else": [
+                              {
+                                "alias": "Creating a full backup (default action)",
+                                "service": "auto_backup.backup",
+                                "data": {
+                                  "name": "{{ name }}",
+                                  "password": "{{ password }}",
+                                  "keep_days": "{{ keep_days }}"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "else": [
+                  {
+                    "variables": {
+                      "backup_type": "hourly",
+                      "keep_days": 2
+                    }
+                  },
+                  {
+                    "variables": {
+                      "name": "{{ backup_type | title }}Backup: {{\n  now().strftime(\n    \"%A, \"\n    ~ iif(backup_type == \"hourly\", \"%-I:%M %p, \", \"\")\n    ~ \"%B %-d, %Y\"\n  )\n}}\n{# HourlyBackup: Monday, 3:04 PM, January 2, 2006 #}\n{# DailyBackup: Monday, January 2, 2006 #}\n",
+                      "backup_action": [
+                        {
+                          "service": "auto_backup.backup",
+                          "data": {
+                            "name": "{{ name }}",
+                            "password": "{{ password }}",
+                            "keep_days": "{{ keep_days }}",
+                            "include_folders": [
+                              "config"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "if": "{{ backup_action | length > 0 }}",
+                    "then": [
+                      {
+                        "service": "auto_backup.backup",
+                        "data": {
+                          "name": "{{ name }}",
+                          "password": "{{ password }}",
+                          "keep_days": "{{ keep_days }}",
+                          "include_folders": [
+                            "config"
+                          ]
+                        }
+                      }
+                    ],
+                    "else": [
+                      {
+                        "alias": "Creating a partial backup (default action)",
+                        "service": "auto_backup.backup",
+                        "data": {
+                          "name": "{{ name }}",
+                          "password": "{{ password }}",
+                          "keep_days": "{{ keep_days }}",
+                          "include_folders": [
+                            "config"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "id": "1675637153975",
+            "alias": "Automatic Backups",
+            "description": ""
+          },
+          "blueprint_inputs": {
+            "id": "1675637153975",
+            "alias": "Automatic Backups",
+            "description": "",
+            "use_blueprint": {
+              "path": "jcwillox/automatic_backups.yaml",
+              "input": {
+                "use_action_hourly": true,
+                "enable_yearly": true,
+                "enable_monthly": true,
+                "enable_weekly": true,
+                "enable_daily": true
+              }
+            }
+          },
+          "context": {
+            "id": "01GSKMNJNT3YEMNMDCEW8A3FSV",
+            "parent_id": null,
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "action/0/then/0/choose/3/sequence/2/else/0",
+          "run_id": "f9cbcfa7de4c5617d6a691cc8d571930",
+          "state": "stopped",
+          "script_execution": "finished",
+          "timestamp": {
+            "start": "2023-02-19T01:30:00.250209+00:00",
+            "finish": "2023-02-19T01:30:11.557874+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675637153975",
+          "trigger": "time"
+        }
+      }
+    ],
+    "automation.1675637801177": [
+      {
+        "extended_dict": {
+          "last_step": "action/0/choose/1/sequence/1/then/1/then/0",
+          "run_id": "cebec06464150aee37551897e594a60b",
+          "state": "stopped",
+          "script_execution": "finished",
+          "timestamp": {
+            "start": "2023-02-19T01:31:17.344730+00:00",
+            "finish": "2023-02-19T01:31:19.797257+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675637801177",
+          "trigger": "event 'auto_backup.backup_successful'",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2023-02-19T01:31:17.345073+00:00",
+                "changed_variables": {
+                  "notify_hass": true,
+                  "this": {
+                    "entity_id": "automation.notify_auto_backup",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2023-02-18T01:31:09.373392+00:00",
+                      "mode": "parallel",
+                      "current": 0,
+                      "max": 10,
+                      "id": "1675637801177",
+                      "friendly_name": "Notify - Auto Backup"
+                    },
+                    "last_changed": "2023-02-18T21:54:16.620681+00:00",
+                    "last_updated": "2023-02-18T21:54:16.620681+00:00",
+                    "context": {
+                      "id": "01GSK8AJDCAG8R5M2BVQXZN199",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "event",
+                    "event": {
+                      "event_type": "auto_backup.backup_successful",
+                      "data": {
+                        "name": "DailyBackup: Sunday, February 19, 2023",
+                        "slug": "d64530f9"
+                      },
+                      "origin": "LOCAL",
+                      "time_fired": "2023-02-19T01:31:17.341439+00:00",
+                      "context": {
+                        "id": "01GSKMQXYX33XVNE8XT2YDP7QR",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "description": "event 'auto_backup.backup_successful'"
+                  }
+                }
+              }
+            ],
+            "action/0": [
+              {
+                "path": "action/0",
+                "timestamp": "2023-02-19T01:31:17.346379+00:00",
+                "changed_variables": {
+                  "context": {
+                    "id": "01GSKMQXZ0W3SNQDX456SN94Z3",
+                    "parent_id": "01GSKMQXYX33XVNE8XT2YDP7QR",
+                    "user_id": null
+                  }
+                },
+                "result": {
+                  "choice": 1
+                }
+              }
+            ],
+            "action/0/choose/0": [
+              {
+                "path": "action/0/choose/0",
+                "timestamp": "2023-02-19T01:31:17.348925+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "action/0/choose/0/conditions/0": [
+              {
+                "path": "action/0/choose/0/conditions/0",
+                "timestamp": "2023-02-19T01:31:17.349065+00:00",
+                "result": {
+                  "result": false,
+                  "entities": []
+                }
+              }
+            ],
+            "action/0/choose/1": [
+              {
+                "path": "action/0/choose/1",
+                "timestamp": "2023-02-19T01:31:17.353984+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "action/0/choose/1/conditions/0": [
+              {
+                "path": "action/0/choose/1/conditions/0",
+                "timestamp": "2023-02-19T01:31:17.354134+00:00",
+                "result": {
+                  "result": true,
+                  "entities": []
+                }
+              }
+            ],
+            "action/0/choose/1/sequence/0": [
+              {
+                "path": "action/0/choose/1/sequence/0",
+                "timestamp": "2023-02-19T01:31:17.357449+00:00"
+              }
+            ],
+            "action/0/choose/1/sequence/1": [
+              {
+                "path": "action/0/choose/1/sequence/1",
+                "timestamp": "2023-02-19T01:31:19.345472+00:00",
+                "changed_variables": {
+                  "notify_title": "Backup Successful",
+                  "notify_message": "DailyBackup: Sunday, February 19, 2023",
+                  "notify_data": {
+                    "group": "Auto Backup",
+                    "url": "/hassio/backups",
+                    "clickAction": "/hassio/backups",
+                    "tag": "auto-backup-DailyBackup: Sunday, February 19, 2023",
+                    "notification_icon": "mdi:package-variant-closed"
+                  }
+                },
+                "result": {
+                  "choice": "then"
+                }
+              }
+            ],
+            "action/0/choose/1/sequence/1/if": [
+              {
+                "path": "action/0/choose/1/sequence/1/if",
+                "timestamp": "2023-02-19T01:31:19.346315+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "action/0/choose/1/sequence/1/if/condition/0": [
+              {
+                "path": "action/0/choose/1/sequence/1/if/condition/0",
+                "timestamp": "2023-02-19T01:31:19.346445+00:00",
+                "result": {
+                  "result": true,
+                  "entities": []
+                }
+              }
+            ],
+            "action/0/choose/1/sequence/1/then/0": [
+              {
+                "path": "action/0/choose/1/sequence/1/then/0",
+                "timestamp": "2023-02-19T01:31:19.367051+00:00",
+                "result": {
+                  "choice": "then"
+                }
+              }
+            ],
+            "action/0/choose/1/sequence/1/then/0/if": [
+              {
+                "path": "action/0/choose/1/sequence/1/then/0/if",
+                "timestamp": "2023-02-19T01:31:19.369729+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "action/0/choose/1/sequence/1/then/0/if/condition/0": [
+              {
+                "path": "action/0/choose/1/sequence/1/then/0/if/condition/0",
+                "timestamp": "2023-02-19T01:31:19.369884+00:00",
+                "result": {
+                  "after": {
+                    "__type": "<class 'datetime.time'>",
+                    "isoformat": "00:00:00"
+                  },
+                  "now_time": {
+                    "__type": "<class 'datetime.time'>",
+                    "isoformat": "02:31:19.369943"
+                  },
+                  "before": {
+                    "__type": "<class 'datetime.time'>",
+                    "isoformat": "00:00:00"
+                  },
+                  "result": true
+                }
+              }
+            ],
+            "action/0/choose/1/sequence/1/then/0/then/0": [
+              {
+                "path": "action/0/choose/1/sequence/1/then/0/then/0",
+                "timestamp": "2023-02-19T01:31:19.377378+00:00"
+              }
+            ],
+            "action/0/choose/1/sequence/1/then/0/then/0/repeat/sequence/0": [
+              {
+                "path": "action/0/choose/1/sequence/1/then/0/then/0/repeat/sequence/0",
+                "timestamp": "2023-02-19T01:31:19.396443+00:00",
+                "changed_variables": {
+                  "repeat": {
+                    "first": true,
+                    "index": 1,
+                    "last": true,
+                    "item": "78507ecdfe1d3d2e0c2a63a0c79e078e"
+                  }
+                },
+                "result": {
+                  "params": {
+                    "domain": "notify",
+                    "service": "mobile_app_iphone_di_andrea",
+                    "service_data": {
+                      "title": "Backup Successful",
+                      "message": "DailyBackup: Sunday, February 19, 2023",
+                      "data": {
+                        "group": "Auto Backup",
+                        "url": "/hassio/backups",
+                        "clickAction": "/hassio/backups",
+                        "tag": "auto-backup-DailyBackup: Sunday, February 19, 2023",
+                        "notification_icon": "mdi:package-variant-closed"
+                      }
+                    },
+                    "target": {}
+                  },
+                  "running_script": false,
+                  "limit": 10
+                }
+              }
+            ],
+            "action/0/choose/1/sequence/1/then/1": [
+              {
+                "path": "action/0/choose/1/sequence/1/then/1",
+                "timestamp": "2023-02-19T01:31:19.788934+00:00",
+                "result": {
+                  "choice": "then"
+                }
+              }
+            ],
+            "action/0/choose/1/sequence/1/then/1/if": [
+              {
+                "path": "action/0/choose/1/sequence/1/then/1/if",
+                "timestamp": "2023-02-19T01:31:19.789636+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "action/0/choose/1/sequence/1/then/1/if/condition/0": [
+              {
+                "path": "action/0/choose/1/sequence/1/then/1/if/condition/0",
+                "timestamp": "2023-02-19T01:31:19.789763+00:00",
+                "result": {
+                  "result": true,
+                  "entities": []
+                }
+              }
+            ],
+            "action/0/choose/1/sequence/1/then/1/then/0": [
+              {
+                "path": "action/0/choose/1/sequence/1/then/1/then/0",
+                "timestamp": "2023-02-19T01:31:19.791609+00:00",
+                "result": {
+                  "params": {
+                    "domain": "persistent_notification",
+                    "service": "create",
+                    "service_data": {
+                      "title": "Backup Successful",
+                      "message": "DailyBackup: Sunday, February 19, 2023"
+                    },
+                    "target": {}
+                  },
+                  "running_script": false,
+                  "limit": 10
+                }
+              }
+            ]
+          },
+          "config": {
+            "mode": "parallel",
+            "variables": {
+              "notify_hass": true
+            },
+            "trigger": {
+              "platform": "event",
+              "event_type": [
+                "auto_backup.backup_failed",
+                "auto_backup.backup_successful"
+              ]
+            },
+            "action": [
+              {
+                "choose": [
+                  {
+                    "conditions": "{{ trigger.event.event_type == \"auto_backup.backup_start\" }}",
+                    "sequence": [
+                      {
+                        "variables": {
+                          "notify_title": "Backup Started",
+                          "notify_message": "{{ trigger.event.data.name }}",
+                          "notify_data": {
+                            "group": "Auto Backup",
+                            "url": "/hassio/backups",
+                            "clickAction": "/hassio/backups",
+                            "tag": "auto-backup-{{ trigger.event.data.name }}",
+                            "notification_icon": "mdi:package-variant"
+                          }
+                        }
+                      },
+                      {
+                        "if": "{{ True }}",
+                        "then": [
+                          {
+                            "if": {
+                              "condition": "time",
+                              "after": "00:00:00",
+                              "before": "00:00:00"
+                            },
+                            "then": [
+                              {
+                                "alias": "Send notifications to mobile devices",
+                                "repeat": {
+                                  "for_each": [
+                                    "78507ecdfe1d3d2e0c2a63a0c79e078e"
+                                  ],
+                                  "sequence": [
+                                    {
+                                      "alias": "Notify mobile device",
+                                      "service": "notify.mobile_app_{{ device_attr(repeat.item, \"name\") | slugify }}",
+                                      "data": {
+                                        "title": "{{ notify_title }}",
+                                        "message": "{{ notify_message }}",
+                                        "data": "{{ notify_data }}"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "if": "{{ notify_hass }}",
+                            "then": [
+                              {
+                                "alias": "Send a notification to HA",
+                                "service": "persistent_notification.create",
+                                "data": {
+                                  "title": "{{ notify_title }}",
+                                  "message": "{{ notify_message }}"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "conditions": "{{ trigger.event.event_type == \"auto_backup.backup_successful\" }}",
+                    "sequence": [
+                      {
+                        "variables": {
+                          "notify_title": "Backup Successful",
+                          "notify_message": "{{ trigger.event.data.name }}",
+                          "notify_data": {
+                            "group": "Auto Backup",
+                            "url": "/hassio/backups",
+                            "clickAction": "/hassio/backups",
+                            "tag": "auto-backup-{{ trigger.event.data.name }}",
+                            "notification_icon": "mdi:package-variant-closed"
+                          }
+                        }
+                      },
+                      {
+                        "if": "{{ True }}",
+                        "then": [
+                          {
+                            "if": {
+                              "condition": "time",
+                              "after": "00:00:00",
+                              "before": "00:00:00"
+                            },
+                            "then": [
+                              {
+                                "alias": "Send notifications to mobile devices",
+                                "repeat": {
+                                  "for_each": [
+                                    "78507ecdfe1d3d2e0c2a63a0c79e078e"
+                                  ],
+                                  "sequence": [
+                                    {
+                                      "alias": "Notify mobile device",
+                                      "service": "notify.mobile_app_{{ device_attr(repeat.item, \"name\") | slugify }}",
+                                      "data": {
+                                        "title": "{{ notify_title }}",
+                                        "message": "{{ notify_message }}",
+                                        "data": "{{ notify_data }}"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "if": "{{ notify_hass }}",
+                            "then": [
+                              {
+                                "alias": "Send a notification to HA",
+                                "service": "persistent_notification.create",
+                                "data": {
+                                  "title": "{{ notify_title }}",
+                                  "message": "{{ notify_message }}"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "conditions": "{{ trigger.event.event_type == \"auto_backup.backup_failed\" }}",
+                    "sequence": [
+                      {
+                        "variables": {
+                          "notify_title": "Backup Failed",
+                          "notify_message": "{{ trigger.event.data.name }}\n{{ trigger.event.data.error }}\n",
+                          "notify_data": {
+                            "group": "Auto Backup",
+                            "url": "/hassio/backups",
+                            "clickAction": "/hassio/backups",
+                            "tag": "auto-backup-{{ trigger.event.data.name }}",
+                            "notification_icon": "mdi:package-variant-closed-remove"
+                          }
+                        }
+                      },
+                      {
+                        "if": "{{ True }}",
+                        "then": [
+                          {
+                            "if": {
+                              "condition": "time",
+                              "after": "00:00:00",
+                              "before": "00:00:00"
+                            },
+                            "then": [
+                              {
+                                "alias": "Send notifications to mobile devices",
+                                "repeat": {
+                                  "for_each": [
+                                    "78507ecdfe1d3d2e0c2a63a0c79e078e"
+                                  ],
+                                  "sequence": [
+                                    {
+                                      "alias": "Notify mobile device",
+                                      "service": "notify.mobile_app_{{ device_attr(repeat.item, \"name\") | slugify }}",
+                                      "data": {
+                                        "title": "{{ notify_title }}",
+                                        "message": "{{ notify_message }}",
+                                        "data": "{{ notify_data }}"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "if": "{{ notify_hass }}",
+                            "then": [
+                              {
+                                "alias": "Send a notification to HA",
+                                "service": "persistent_notification.create",
+                                "data": {
+                                  "title": "{{ notify_title }}",
+                                  "message": "{{ notify_message }}"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "conditions": "{{ trigger.event.event_type == \"auto_backup.purged_backups\" }}",
+                    "sequence": [
+                      {
+                        "variables": {
+                          "notify_title": "Backup(s) Purged",
+                          "notify_message": "{{ trigger.event.data.backups | join(', ') }}",
+                          "notify_data": {
+                            "group": "Auto Backup",
+                            "url": "/hassio/backups",
+                            "clickAction": "/hassio/backups",
+                            "notification_icon": "mdi:package-variant-closed-minus"
+                          }
+                        }
+                      },
+                      {
+                        "if": "{{ True }}",
+                        "then": [
+                          {
+                            "if": {
+                              "condition": "time",
+                              "after": "00:00:00",
+                              "before": "00:00:00"
+                            },
+                            "then": [
+                              {
+                                "alias": "Send notifications to mobile devices",
+                                "repeat": {
+                                  "for_each": [
+                                    "78507ecdfe1d3d2e0c2a63a0c79e078e"
+                                  ],
+                                  "sequence": [
+                                    {
+                                      "alias": "Notify mobile device",
+                                      "service": "notify.mobile_app_{{ device_attr(repeat.item, \"name\") | slugify }}",
+                                      "data": {
+                                        "title": "{{ notify_title }}",
+                                        "message": "{{ notify_message }}",
+                                        "data": "{{ notify_data }}"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "if": "{{ notify_hass }}",
+                            "then": [
+                              {
+                                "alias": "Send a notification to HA",
+                                "service": "persistent_notification.create",
+                                "data": {
+                                  "title": "{{ notify_title }}",
+                                  "message": "{{ notify_message }}"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "id": "1675637801177",
+            "alias": "Notify - Auto Backup",
+            "description": ""
+          },
+          "blueprint_inputs": {
+            "id": "1675637801177",
+            "alias": "Notify - Auto Backup",
+            "description": "",
+            "use_blueprint": {
+              "path": "jcwillox/notify_auto_backup.yaml",
+              "input": {
+                "devices": [
+                  "78507ecdfe1d3d2e0c2a63a0c79e078e"
+                ],
+                "notify_hass": true,
+                "events": [
+                  "auto_backup.backup_failed",
+                  "auto_backup.backup_successful"
+                ]
+              }
+            }
+          },
+          "context": {
+            "id": "01GSKMQXZ0W3SNQDX456SN94Z3",
+            "parent_id": "01GSKMQXYX33XVNE8XT2YDP7QR",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "action/0/choose/1/sequence/1/then/1/then/0",
+          "run_id": "cebec06464150aee37551897e594a60b",
+          "state": "stopped",
+          "script_execution": "finished",
+          "timestamp": {
+            "start": "2023-02-19T01:31:17.344730+00:00",
+            "finish": "2023-02-19T01:31:19.797257+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675637801177",
+          "trigger": "event 'auto_backup.backup_successful'"
+        }
+      }
+    ],
+    "automation.1675636047997": [
+      {
+        "extended_dict": {
+          "last_step": "condition/0/conditions/1",
+          "run_id": "649c0792923544df90c4c727e346c477",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-19T07:57:09.028033+00:00",
+            "finish": "2023-02-19T07:57:09.028765+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675636047997",
+          "trigger": "device_tracker.iphone_2 leaving Casa Como",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2023-02-19T07:57:09.028214+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.luci_spente_quando_si_esce",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2023-02-18T15:31:14.475746+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "id": "1675636047997",
+                      "friendly_name": "luci spente quando si esce"
+                    },
+                    "last_changed": "2023-02-18T21:54:16.618044+00:00",
+                    "last_updated": "2023-02-18T21:54:16.618044+00:00",
+                    "context": {
+                      "id": "01GSK8AJDABGQYGJBMEDE4W13V",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "device",
+                    "entity_id": "device_tracker.iphone_2",
+                    "from_state": {
+                      "entity_id": "device_tracker.iphone_2",
+                      "state": "home",
+                      "attributes": {
+                        "source_type": "gps",
+                        "battery_level": 97,
+                        "latitude": 45.78324187085571,
+                        "longitude": 9.07125687227498,
+                        "gps_accuracy": 8.714337995370965,
+                        "account_fetch_interval": 30,
+                        "device_name": "iPhone 13",
+                        "device_status": "online",
+                        "owner_fullname": "Sara Gangale",
+                        "battery_status": "NotCharging",
+                        "battery": 97,
+                        "low_power_mode": false,
+                        "icon": "mdi:cellphone",
+                        "friendly_name": "iPhone (2)"
+                      },
+                      "last_changed": "2023-02-19T07:27:00.824067+00:00",
+                      "last_updated": "2023-02-19T07:27:00.824067+00:00",
+                      "context": {
+                        "id": "01GSM9396RK28NSJ674RGEQCAN",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "device_tracker.iphone_2",
+                      "state": "not_home",
+                      "attributes": {
+                        "source_type": "gps",
+                        "battery_level": 95,
+                        "latitude": 45.77654489785971,
+                        "longitude": 9.076200937860715,
+                        "gps_accuracy": 5.448955811854745,
+                        "account_fetch_interval": 30,
+                        "device_name": "iPhone 13",
+                        "device_status": "online",
+                        "owner_fullname": "Sara Gangale",
+                        "battery_status": "NotCharging",
+                        "battery": 95,
+                        "low_power_mode": false,
+                        "icon": "mdi:cellphone",
+                        "friendly_name": "iPhone (2)"
+                      },
+                      "last_changed": "2023-02-19T07:57:09.009563+00:00",
+                      "last_updated": "2023-02-19T07:57:09.009563+00:00",
+                      "context": {
+                        "id": "01GSMATF0HQKPZD7BTNGMSRTY0",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "zone": {
+                      "entity_id": "zone.home",
+                      "state": "1",
+                      "attributes": {
+                        "latitude": 45.7831700801559,
+                        "longitude": 9.071348905563356,
+                        "radius": 100,
+                        "passive": false,
+                        "persons": [
+                          "person.andrea_borella"
+                        ],
+                        "editable": true,
+                        "icon": "mdi:home",
+                        "friendly_name": "Casa Como"
+                      },
+                      "last_changed": "2023-02-18T21:54:03.423299+00:00",
+                      "last_updated": "2023-02-18T21:54:03.423299+00:00",
+                      "context": {
+                        "id": "01GSK8A5GZ0FTZN91VPNTVD8WP",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "event": "leave",
+                    "description": "device_tracker.iphone_2 leaving Casa Como"
+                  }
+                }
+              }
+            ],
+            "condition/0": [
+              {
+                "path": "condition/0",
+                "timestamp": "2023-02-19T07:57:09.028347+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/0": [
+              {
+                "path": "condition/0/conditions/0",
+                "timestamp": "2023-02-19T07:57:09.028437+00:00",
+                "result": {
+                  "result": true,
+                  "state": "not_home",
+                  "wanted_state": "home"
+                }
+              }
+            ],
+            "condition/0/conditions/1": [
+              {
+                "path": "condition/0/conditions/1",
+                "timestamp": "2023-02-19T07:57:09.028618+00:00",
+                "result": {
+                  "result": false,
+                  "state": "home",
+                  "wanted_state": "home"
+                }
+              }
+            ]
+          },
+          "config": {
+            "id": "1675636047997",
+            "alias": "luci spente quando si esce",
+            "description": "",
+            "trigger": [
+              {
+                "platform": "device",
+                "device_id": "75b3eeb468bc937546130557ec439c20",
+                "domain": "device_tracker",
+                "entity_id": "device_tracker.iphone_2",
+                "type": "leaves",
+                "zone": "zone.home"
+              },
+              {
+                "platform": "device",
+                "device_id": "78507ecdfe1d3d2e0c2a63a0c79e078e",
+                "domain": "device_tracker",
+                "entity_id": "device_tracker.iphone_di_andrea",
+                "type": "leaves",
+                "zone": "zone.home"
+              }
+            ],
+            "condition": [
+              {
+                "condition": "and",
+                "conditions": [
+                  {
+                    "condition": "device",
+                    "device_id": "75b3eeb468bc937546130557ec439c20",
+                    "domain": "device_tracker",
+                    "entity_id": "device_tracker.iphone_2",
+                    "type": "is_not_home"
+                  },
+                  {
+                    "condition": "device",
+                    "device_id": "78507ecdfe1d3d2e0c2a63a0c79e078e",
+                    "domain": "device_tracker",
+                    "entity_id": "device_tracker.iphone_di_andrea",
+                    "type": "is_not_home"
+                  }
+                ]
+              }
+            ],
+            "action": [
+              {
+                "service": "light.turn_off",
+                "data": {},
+                "target": {
+                  "entity_id": "light.tutte_le_luci"
+                }
+              }
+            ],
+            "mode": "single"
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01GSMATF13R3SCXD2B6NJT4CC6",
+            "parent_id": "01GSMATF0HQKPZD7BTNGMSRTY0",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "condition/0/conditions/1",
+          "run_id": "649c0792923544df90c4c727e346c477",
+          "state": "stopped",
+          "script_execution": "failed_conditions",
+          "timestamp": {
+            "start": "2023-02-19T07:57:09.028033+00:00",
+            "finish": "2023-02-19T07:57:09.028765+00:00"
+          },
+          "domain": "automation",
+          "item_id": "1675636047997",
+          "trigger": "device_tracker.iphone_2 leaving Casa Como"
+        }
+      }
+    ]
+  }
+}

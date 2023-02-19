@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "minor_version": 3,
+  "key": "core.area_registry",
+  "data": {
+    "areas": [
+      {
+        "aliases": [],
+        "name": "Cucina",
+        "id": "cucina",
+        "picture": null
+      },
+      {
+        "aliases": [],
+        "name": "Sala",
+        "id": "sala",
+        "picture": null
+      },
+      {
+        "aliases": [],
+        "name": "Studio Andrea",
+        "id": "studio_andrea",
+        "picture": null
+      },
+      {
+        "aliases": [],
+        "name": "Devices",
+        "id": "devices",
+        "picture": null
+      },
+      {
+        "aliases": [],
+        "name": "Studio Sara",
+        "id": "studio_sara",
+        "picture": null
+      },
+      {
+        "aliases": [],
+        "name": "Camera",
+        "id": "camera",
+        "picture": null
+      },
+      {
+        "aliases": [],
+        "name": "Garage",
+        "id": "garage",
+        "picture": null
+      }
+    ]
+  }
+}

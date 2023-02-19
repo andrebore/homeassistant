@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "homekit.041a46ca07f44ceb75cbed17361fe032.aids",
+  "data": {
+    "allocations": {
+      "switch_as_x.light.569af43351f9ac6ec8b99943f93c10c1": 1843526603,
+      "switch_as_x.light.8b256daf398ff39eef103ee93f7fc47f": 1163196360,
+      "group.light.18f77dae254aa971c9661daf9c697559": 4228937406,
+      "group.light.e80aa59d64efbd93cf887ad8866b54c8": 3931938327,
+      "group.light.db225013942275c2dfa79cff5605d943": 2445926415,
+      "script.script.alza_scrivania": 360541254,
+      "script.script.abbassa_scrivania": 2675552099,
+      "braviatv.remote.09050c0c05040d040502060d0d0f0f0b040c0e0b": 952101574,
+      "melcloud.climate.2121808093-2c:9f:fb:b3:7f:54": 3317057459,
+      "esphome.cover.scrivaniacoverscrivania": 3585173082,
+      "melcloud.climate.2121913078-2c:9f:fb:b5:45:88": 931927840,
+      "melcloud.climate.2055712256-2c:9f:fb:a1:bd:59": 4054652311,
+      "melcloud.climate.2121816089-2c:9f:fb:b3:7f:4d": 2106520940,
+      "tradfri.light.light-7e586d52044000a7-65537": 3991611579,
+      "tradfri.light.light-7e586d52044000a7-65536": 3974833960,
+      "nest.climate.enterprises/f7e36d2e-54ab-44bf-b082-0f98aa805c93/devices/AVPHwEtwWE2zooyparVRAQvxnIRHOthdnezt3woIU5F99zWyBrySWCxVESJ8jeUEDry3Yqo2RYhQiAQZdUbjvse70enLeA": 2354579072,
+      "shelly.switch.98CDAC39E9D3-relay_0": 3442903578,
+      "shelly.light.34945470A5E4-relay_0": 3408558944,
+      "shelly.light.34945470CD9C-relay_0": 1453159128,
+      "switch.proxmox": 489093176,
+      "template.switch.start-stop nosuchdesktop": 529813780
+    }
+  }
+}
