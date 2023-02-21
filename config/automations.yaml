@@ -147,7 +147,7 @@
   description: ''
   trigger:
   - platform: device
-    device_id: 5082eb46729a932c05f581ee3c889d49
+    device_id: 7af5a9151bcb297a5e4ead0432fdebbb
     domain: device_tracker
     entity_id: device_tracker.iphone_2_2
     type: leaves
@@ -205,7 +205,7 @@
   description: ''
   trigger:
   - platform: device
-    device_id: 5082eb46729a932c05f581ee3c889d49
+    device_id: 7af5a9151bcb297a5e4ead0432fdebbb
     domain: device_tracker
     entity_id: device_tracker.iphone_2_2
     type: enters
