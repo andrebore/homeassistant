@@ -162,9 +162,9 @@
   - condition: and
     conditions:
     - condition: device
-      device_id: 75b3eeb468bc937546130557ec439c20
+      device_id: 7af5a9151bcb297a5e4ead0432fdebbb
       domain: device_tracker
-      entity_id: device_tracker.iphone_2
+      entity_id: device_tracker.iphone_2_2
       type: is_not_home
     - condition: device
       device_id: 78507ecdfe1d3d2e0c2a63a0c79e078e
