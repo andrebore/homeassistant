@@ -287,3 +287,22 @@
     target:
       device_id: c3be652400abcfdc1837015226cfae87
   mode: single
+- id: '1677712177038'
+  alias: spegni proxmox se non ci sono download attivi
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.transmission_active_torrents
+    below: 1
+    for:
+      hours: 0
+      minutes: 30
+      seconds: 0
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.plex_plex
+    below: 1
+  action:
+  - service: shell_command.turn_off_proxmox
+    data: {}
+  mode: single
